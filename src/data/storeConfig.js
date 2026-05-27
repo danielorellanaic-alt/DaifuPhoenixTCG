@@ -1,0 +1,46 @@
+const storeConfig = {
+  store: {
+    name: "DEMO TCG STORE",
+    description: "Singles y sellados disponibles",
+    location: "Viña del Mar, Chile",
+    instagram: "@tcgvinadelmar",
+    whatsappNumber: "56950974749",
+  },
+
+  branding: {
+    logoImage: "https://placehold.co/300x300?text=TCG+Logo",
+    bannerImage: "https://placehold.co/1200x420?text=TCG+Store+Banner",
+    primaryColor: "#38bdf8",
+  },
+
+  home: {
+    metaLines: [
+      "Singles y sellados disponibles",
+      "Entregas en Viña del Mar",
+      "Compra directa por WhatsApp",
+    ],
+  },
+
+  shoppingInfo: {
+    howToBuy: [
+      "Agrega productos al carrito",
+      "Envía tu pedido por WhatsApp",
+      "Confirmamos stock y método de pago",
+      "Coordinamos entrega o envío",
+    ],
+
+    paymentMethods: [
+      "Transferencia bancaria",
+      "Mercado Pago",
+      "Efectivo en entregas",
+    ],
+
+    deliveryMethods: [
+      "Entregas en Viña del Mar",
+      "Entregas coordinadas",
+      "Envíos a regiones",
+    ],
+  },
+};
+
+export default storeConfig;
