@@ -8,7 +8,7 @@ const storeConfig = {
   },
 
   branding: {
-    logoImage: storeLogo,
+    logoImage: "",
     bannerImage: "https://placehold.co/1200x420?text=TCG+Store+Banner",
     primaryColor: "#38bdf8",
   },
