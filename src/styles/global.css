@@ -1854,7 +1854,7 @@ body,
 
 /* ADMIN LOGIN PREMIUM */
 
-.admin-auth-page {
+.admin-login {
   min-height: 100vh !important;
 
   display: flex !important;
@@ -1868,7 +1868,7 @@ body,
     linear-gradient(180deg, #120d0a 0%, #18120f 55%, #120d0a 100%) !important;
 }
 
-.admin-auth-card {
+.admin-card {
   width: 100% !important;
   max-width: 420px !important;
 
@@ -1892,7 +1892,7 @@ body,
   backdrop-filter: blur(18px) !important;
 }
 
-.admin-auth-card h1 {
+.admin-card h1 {
   margin: 0 0 10px !important;
 
   color: #fff7ed !important;
@@ -1901,12 +1901,12 @@ body,
   line-height: 0.95 !important;
 }
 
-.admin-auth-card p {
+.admin-card p {
   color: #caa98a !important;
   margin-bottom: 28px !important;
 }
 
-.admin-auth-card input {
+.admin-card input {
   width: 100% !important;
   box-sizing: border-box !important;
 
@@ -1924,11 +1924,11 @@ body,
   font-size: 16px !important;
 }
 
-.admin-auth-card input::placeholder {
+.admin-card input::placeholder {
   color: #caa98a !important;
 }
 
-.admin-auth-card button {
+.admin-card button {
   width: 100% !important;
 
   margin-top: 6px !important;
@@ -1951,13 +1951,4 @@ body,
   font-weight: 900 !important;
 
   cursor: pointer !important;
-
-  transition:
-    transform 0.2s,
-    opacity 0.2s !important;
-}
-
-.admin-auth-card button:hover {
-  transform: translateY(-2px) !important;
-  opacity: 0.95 !important;
 }
