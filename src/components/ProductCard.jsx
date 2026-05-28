@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShoppingCart } from "lucide-react";
 
 export default function ProductCard({ product, addToCart }) {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -39,12 +40,15 @@ export default function ProductCard({ product, addToCart }) {
 
         <div className="product-footer">
           <strong>${product.price.toLocaleString("es-CL")} CLP</strong>
-          <small>Stock: {product.stock}</small>
-        </div>
 
-        <button className="add-button" onClick={() => addToCart(product)}>
-          Agregar al carrito
-        </button>
+          <button
+            className="quick-cart-button"
+            onClick={() => addToCart(product)}
+            aria-label="Agregar al carrito"
+          >
+            <ShoppingCart size={18} />
+          </button>
+        </div>
       </div>
     </article>
   );
