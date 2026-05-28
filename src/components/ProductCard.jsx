@@ -41,13 +41,19 @@ export default function ProductCard({ product, addToCart }) {
         <div className="product-footer">
           <strong>${product.price.toLocaleString("es-CL")} CLP</strong>
 
-          <button
-            className="quick-cart-button"
-            onClick={() => addToCart(product)}
-            aria-label="Agregar al carrito"
-          >
-            <ShoppingCart size={18} />
-          </button>
+          <div className="cart-button-wrapper">
+            <span className="stock-badge">
+              {product.stock}
+            </span>
+
+            <button
+              className="quick-cart-button"
+              onClick={() => addToCart(product)}
+              aria-label="Agregar al carrito"
+            >
+              <ShoppingCart size={18} />
+            </button>
+          </div>
         </div>
       </div>
     </article>
