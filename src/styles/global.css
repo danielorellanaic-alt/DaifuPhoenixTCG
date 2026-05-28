@@ -1385,3 +1385,26 @@ body,
   color: #140b06;
   font-weight: 950;
 }
+
+/* ICON COLOR FIX */
+
+.menu-button,
+.topbar-actions button,
+.cart-icon-button,
+.cart-header button {
+  color: #fb923c;
+}
+
+.menu-button:hover,
+.topbar-actions button:hover,
+.cart-header button:hover {
+  color: #fdba74;
+}
+
+.search-input {
+  color: #fff7ed;
+}
+
+.search-input::placeholder {
+  color: #caa98a;
+}
