@@ -1152,3 +1152,69 @@ img {
     height: 230px;
   }
 }
+
+/* PREMIUM WARM THEME */
+
+body,
+.app-layout {
+  background:
+    radial-gradient(circle at top left, rgba(234, 88, 12, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(120, 48, 12, 0.12), transparent 32%),
+    linear-gradient(180deg, #efe3d5 0%, #f8f1e8 45%, #f4eadf 100%);
+}
+
+.header-area {
+  background: rgba(255, 250, 243, 0.78);
+  border-bottom: 1px solid rgba(120, 48, 12, 0.18);
+  box-shadow: 0 10px 30px rgba(70, 25, 5, 0.06);
+}
+
+.banner {
+  background:
+    linear-gradient(135deg, #1f0b04 0%, #7c2d12 45%, #f97316 100%);
+  box-shadow: 0 24px 50px rgba(70, 25, 5, 0.18);
+}
+
+.search-input {
+  background: rgba(255, 250, 243, 0.82);
+  border: 1px solid rgba(120, 48, 12, 0.18);
+  box-shadow: 0 10px 24px rgba(70, 25, 5, 0.06);
+}
+
+.product-image {
+  border: 1px solid rgba(120, 48, 12, 0.14);
+  box-shadow: 0 18px 34px rgba(70, 25, 5, 0.16);
+}
+
+.info-card,
+.cart-item,
+.admin-card,
+.admin-form,
+.admin-list,
+.admin-orders,
+.admin-stat {
+  background: rgba(255, 250, 243, 0.84);
+  border: 1px solid rgba(120, 48, 12, 0.16);
+  box-shadow: 0 18px 38px rgba(70, 25, 5, 0.1);
+}
+
+.info-card:hover,
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.section-header h2,
+.store-info h2 {
+  letter-spacing: -0.04em;
+}
+
+.product-footer strong {
+  color: #9a3412;
+}
+
+.whatsapp-button,
+.admin-card button,
+.admin-form button,
+.admin-tabs button.active {
+  background: linear-gradient(135deg, #9a3412, #ea580c, #f59e0b);
+}
