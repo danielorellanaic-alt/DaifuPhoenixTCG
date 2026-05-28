@@ -587,13 +587,30 @@ img {
 }
 
 .info-card {
-  min-height: 220px;
-  padding: 22px;
+  position: relative;
 
-  border-radius: 22px;
+  overflow: hidden;
 
-  background: rgba(2, 6, 23, 0.55);
-  border: 1px solid rgba(148, 163, 184, 0.12);
+  padding: 26px;
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  border:
+    1px solid rgba(255, 145, 0, 0.12);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .info-title {
@@ -1136,14 +1153,11 @@ body {
 
 body {
   background:
-    linear-gradient(
-      180deg,
-      #120701 0%,
-      #1b0a02 35%,
-      #0f0a05 100%
-    );
-
-  color: #fff5e6;
+    radial-gradient(
+      circle at top,
+      rgba(120, 30, 0, 0.18),
+      transparent 30%
+    ),
 }
 
 .app-layout {
@@ -1411,8 +1425,8 @@ body {
   background:
     radial-gradient(
       circle at top right,
-      rgba(255, 140, 0, 0.16),
-      transparent 45%
+      rgba(255, 90, 0, 0.08),
+      transparent 42%
     );
 
   pointer-events: none;
@@ -1445,7 +1459,7 @@ body {
 
 .info-card p,
 .info-card li {
-  color: #ffd6a5;
+  color: #e7d7c3;
 
   line-height: 1.7;
 }
