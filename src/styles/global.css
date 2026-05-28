@@ -1571,3 +1571,9 @@ body,
 
   font-weight: 900;
 }
+
+.store-info {
+  padding-left: 90px !important;
+  position: relative !important;
+  top: 42px !important;
+}
