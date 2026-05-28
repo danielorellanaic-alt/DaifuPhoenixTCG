@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 import storeConfig from "../data/storeConfig";
+import storeLogo from "../assets/logo/store-logo.png";
 
 export default function SideMenu({
   isOpen,
@@ -44,7 +45,7 @@ export default function SideMenu({
       >
         <div className="sidebar-brand">
           <img
-            src={storeConfig.branding.logoImage}
+            src={storeLogo}
             alt={storeConfig.store.name}
           />
 
