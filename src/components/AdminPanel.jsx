@@ -10,16 +10,50 @@ import {
   XCircle,
 } from "lucide-react";
 
-const games = ["Pokémon", "Magic", "One Piece", "Yu-Gi-Oh!", "Accesorios", "Otros", "Pre-ventas"];
+const games = [
+  "Pokémon",
+  "Magic",
+  "One Piece",
+  "Yu-Gi-Oh!",
+  "Accesorios",
+  "Otros",
+  "Pre-ventas",
+];
+
 const categories = ["Sellado", "Singles", "Accesorios"];
-const conditions = ["", "Mint", "Near Mint", "Lightly Played", "Moderately Played", "Heavily Played", "Damaged"];
-const rarities = ["", "Common", "Uncommon", "Rare", "Double Rare", "ACE SPEC", "Illustration Rare", "Ultra Rare", "Special Illustration Rare", "Hyper Rare", "Shiny Rare", "Shiny Ultra Rare", "Promo"];
+
+const conditions = [
+  "",
+  "Mint",
+  "Near Mint",
+  "Lightly Played",
+  "Moderately Played",
+  "Heavily Played",
+  "Damaged",
+];
+
+const rarities = [
+  "",
+  "Common",
+  "Uncommon",
+  "Rare",
+  "Double Rare",
+  "ACE SPEC",
+  "Illustration Rare",
+  "Ultra Rare",
+  "Special Illustration Rare",
+  "Hyper Rare",
+  "Shiny Rare",
+  "Shiny Ultra Rare",
+  "Promo",
+];
 
 const emptyForm = {
   name: "",
   game: "Pokémon",
   category: "Sellado",
   set: "",
+  cardNumber: "",
   condition: "",
   language: "",
   rarity: "",
@@ -35,12 +69,17 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
   const [selectedCategory, setSelectedCategory] = useState("Todas");
   const [form, setForm] = useState(emptyForm);
 
+  const [cardSearch, setCardSearch] = useState("");
+  const [cardResults, setCardResults] = useState([]);
+  const [searchingCards, setSearchingCards] = useState(false);
+
   const formatProduct = (product) => ({
     id: product.id,
     name: product.name,
     game: product.game,
     category: product.category,
     set: product.set_name,
+    cardNumber: product.card_number,
     condition: product.condition,
     language: product.language,
     rarity: product.rarity,
@@ -95,10 +134,55 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
+
     setForm((current) => ({
       ...current,
       [name]: type === "checkbox" ? checked : value,
     }));
+  };
+
+  const searchPokemonCards = async () => {
+    if (!cardSearch.trim()) return;
+
+    setSearchingCards(true);
+
+    try {
+      const query = encodeURIComponent(`name:${cardSearch.trim()}*`);
+
+      const response = await fetch(
+        `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=8`
+      );
+
+      const result = await response.json();
+
+      setCardResults(result.data || []);
+    } catch (error) {
+      console.log("ERROR BUSCANDO CARTAS:", error);
+      alert("No se pudieron buscar cartas.");
+    } finally {
+      setSearchingCards(false);
+    }
+  };
+
+  const selectPokemonCard = (card) => {
+    const totalCards = card.set?.printedTotal || card.set?.total || "";
+    const cardNumber = totalCards
+      ? `${card.number}/${totalCards}`
+      : card.number;
+
+    setForm((current) => ({
+      ...current,
+      name: card.name || current.name,
+      game: "Pokémon",
+      category: "Singles",
+      set: card.set?.name || current.set,
+      cardNumber,
+      rarity: card.rarity || current.rarity,
+      image: card.images?.large || card.images?.small || current.image,
+    }));
+
+    setCardResults([]);
+    setCardSearch("");
   };
 
   const addProduct = async (event) => {
@@ -111,6 +195,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
         game: form.game,
         category: form.category,
         set_name: form.set,
+        card_number: form.cardNumber || null,
         condition: form.condition || null,
         language: form.language,
         rarity: form.rarity || null,
@@ -147,7 +232,9 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
     setProducts(
       products.map((product) =>
-        product.id === productId ? { ...product, stock: stockValue } : product
+        product.id === productId
+          ? { ...product, stock: stockValue }
+          : product
       )
     );
   };
@@ -186,11 +273,15 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
     const updatedProducts = products.map((product) => {
       const orderItem = order.items.find((item) => item.id === product.id);
+
       if (!orderItem) return product;
 
       return {
         ...product,
-        stock: Math.max(Number(product.stock) - Number(orderItem.quantity), 0),
+        stock: Math.max(
+          Number(product.stock) - Number(orderItem.quantity),
+          0
+        ),
       };
     });
 
@@ -209,17 +300,14 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
     const order = orders.find((item) => item.id === orderId);
     if (!order || order.status !== "Pendiente") return;
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("orders")
       .update({ status: "Cancelada" })
       .eq("id", order.dbId)
-      .eq("status", "Pendiente")
-      .select()
-      .single();
+      .eq("status", "Pendiente");
 
-    if (error || !data) {
+    if (error) {
       console.log("ERROR CANCELANDO ORDEN:", error);
-      await loadOrders();
       return;
     }
 
@@ -250,8 +338,13 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
   };
 
   const filteredProducts = products.filter((product) => {
-    const matchesGame = selectedGame === "Todos" || product.game === selectedGame;
-    const matchesCategory = selectedCategory === "Todas" || product.category === selectedCategory;
+    const matchesGame =
+      selectedGame === "Todos" || product.game === selectedGame;
+
+    const matchesCategory =
+      selectedCategory === "Todas" ||
+      product.category === selectedCategory;
+
     return matchesGame && matchesCategory;
   });
 
@@ -268,6 +361,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
       <section className="admin-stats">
         <div className="admin-stat">
           <Package size={22} />
+
           <div>
             <strong>{products.length}</strong>
             <span>Productos</span>
@@ -276,14 +370,22 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
         <div className="admin-stat">
           <Layers size={22} />
+
           <div>
-            <strong>{products.reduce((sum, item) => sum + Number(item.stock), 0)}</strong>
+            <strong>
+              {products.reduce(
+                (sum, item) => sum + Number(item.stock),
+                0
+              )}
+            </strong>
+
             <span>Stock total</span>
           </div>
         </div>
 
         <div className="admin-stat">
           <ShoppingCart size={22} />
+
           <div>
             <strong>{orders.length}</strong>
             <span>Órdenes</span>
@@ -293,6 +395,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
       <div className="admin-tabs">
         <button
+          type="button"
           className={activeTab === "products" ? "active" : ""}
           onClick={() => setActiveTab("products")}
         >
@@ -300,6 +403,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
         </button>
 
         <button
+          type="button"
           className={activeTab === "orders" ? "active" : ""}
           onClick={() => {
             setActiveTab("orders");
@@ -318,22 +422,102 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
               <h2>Agregar producto</h2>
             </div>
 
-            <input name="name" placeholder="Nombre del producto" value={form.name} onChange={handleChange} required />
+            <div className="tcg-search-box">
+              <input
+                type="text"
+                placeholder="Buscar carta Pokémon ej: Houndoom"
+                value={cardSearch}
+                onChange={(event) => setCardSearch(event.target.value)}
+              />
+
+              <button
+                type="button"
+                onClick={searchPokemonCards}
+                disabled={searchingCards}
+              >
+                {searchingCards ? "Buscando..." : "Buscar carta"}
+              </button>
+            </div>
+
+            {cardResults.length > 0 && (
+              <div className="tcg-results">
+                {cardResults.map((card) => (
+                  <button
+                    type="button"
+                    className="tcg-result-card"
+                    key={card.id}
+                    onClick={() => selectPokemonCard(card)}
+                  >
+                    <img src={card.images.small} alt={card.name} />
+
+                    <div>
+                      <strong>{card.name}</strong>
+                      <span>{card.set.name}</span>
+                      <small>
+                        {card.number}/
+                        {card.set.printedTotal || card.set.total} ·{" "}
+                        {card.rarity || "Sin rareza"}
+                      </small>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <input
+              name="name"
+              placeholder="Nombre del producto"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              name="cardNumber"
+              placeholder="Número de carta ej: 066/064"
+              value={form.cardNumber}
+              onChange={handleChange}
+            />
 
             <div className="admin-form-grid">
-              <select name="game" value={form.game} onChange={handleChange}>
-                {games.map((game) => <option key={game} value={game}>{game}</option>)}
+              <select
+                name="game"
+                value={form.game}
+                onChange={handleChange}
+              >
+                {games.map((game) => (
+                  <option key={game} value={game}>
+                    {game}
+                  </option>
+                ))}
               </select>
 
-              <select name="category" value={form.category} onChange={handleChange}>
-                {categories.map((category) => <option key={category} value={category}>{category}</option>)}
+              <select
+                name="category"
+                value={form.category}
+                onChange={handleChange}
+              >
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
               </select>
             </div>
 
             <div className="admin-form-grid">
-              <input name="set" placeholder="Expansión / Set" value={form.set} onChange={handleChange} />
+              <input
+                name="set"
+                placeholder="Expansión / Set"
+                value={form.set}
+                onChange={handleChange}
+              />
 
-              <select name="condition" value={form.condition} onChange={handleChange}>
+              <select
+                name="condition"
+                value={form.condition}
+                onChange={handleChange}
+              >
                 {conditions.map((condition) => (
                   <option key={condition || "none"} value={condition}>
                     {condition || "Sin estado"}
@@ -343,9 +527,18 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
             </div>
 
             <div className="admin-form-grid">
-              <input name="language" placeholder="Idioma" value={form.language} onChange={handleChange} />
+              <input
+                name="language"
+                placeholder="Idioma"
+                value={form.language}
+                onChange={handleChange}
+              />
 
-              <select name="rarity" value={form.rarity} onChange={handleChange}>
+              <select
+                name="rarity"
+                value={form.rarity}
+                onChange={handleChange}
+              >
                 {rarities.map((rarity) => (
                   <option key={rarity || "none"} value={rarity}>
                     {rarity || "Sin rareza"}
@@ -355,14 +548,40 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
             </div>
 
             <div className="admin-form-grid">
-              <input name="price" type="number" placeholder="Precio" value={form.price} onChange={handleChange} required />
-              <input name="stock" type="number" placeholder="Stock" value={form.stock} onChange={handleChange} required />
+              <input
+                name="price"
+                type="number"
+                placeholder="Precio"
+                value={form.price}
+                onChange={handleChange}
+                required
+              />
+
+              <input
+                name="stock"
+                type="number"
+                placeholder="Stock"
+                value={form.stock}
+                onChange={handleChange}
+                required
+              />
             </div>
 
-            <input name="image" placeholder="URL de imagen" value={form.image} onChange={handleChange} required />
+            <input
+              name="image"
+              placeholder="URL de imagen"
+              value={form.image}
+              onChange={handleChange}
+              required
+            />
 
             <label className="admin-check">
-              <input name="featured" type="checkbox" checked={form.featured} onChange={handleChange} />
+              <input
+                name="featured"
+                type="checkbox"
+                checked={form.featured}
+                onChange={handleChange}
+              />
               Marcar como destacado
             </label>
 
@@ -377,14 +596,30 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
               </div>
 
               <div className="admin-filters">
-                <select value={selectedGame} onChange={(event) => setSelectedGame(event.target.value)}>
+                <select
+                  value={selectedGame}
+                  onChange={(event) =>
+                    setSelectedGame(event.target.value)
+                  }
+                >
                   <option>Todos</option>
-                  {games.map((game) => <option key={game}>{game}</option>)}
+
+                  {games.map((game) => (
+                    <option key={game}>{game}</option>
+                  ))}
                 </select>
 
-                <select value={selectedCategory} onChange={(event) => setSelectedCategory(event.target.value)}>
+                <select
+                  value={selectedCategory}
+                  onChange={(event) =>
+                    setSelectedCategory(event.target.value)
+                  }
+                >
                   <option>Todas</option>
-                  {categories.map((category) => <option key={category}>{category}</option>)}
+
+                  {categories.map((category) => (
+                    <option key={category}>{category}</option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -395,21 +630,39 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                   <img src={product.image} alt={product.name} />
 
                   <div className="admin-product-info">
-                    <h3>{product.name}</h3>
-                    <p>{product.game} · {product.category}</p>
-                    <strong>${product.price.toLocaleString("es-CL")}</strong>
+                    <h3>
+                      {product.name}
+                      {product.cardNumber
+                        ? ` ${product.cardNumber}`
+                        : ""}
+                    </h3>
+
+                    <p>
+                      {product.game} · {product.category}
+                    </p>
+
+                    <strong>
+                      ${product.price.toLocaleString("es-CL")}
+                    </strong>
                   </div>
 
                   <div className="admin-stock">
                     <label>Stock</label>
+
                     <input
                       type="number"
                       value={product.stock}
-                      onChange={(event) => updateStock(product.id, event.target.value)}
+                      onChange={(event) =>
+                        updateStock(product.id, event.target.value)
+                      }
                     />
                   </div>
 
-                  <button className="admin-delete" onClick={() => deleteProduct(product.id)}>
+                  <button
+                    type="button"
+                    className="admin-delete"
+                    onClick={() => deleteProduct(product.id)}
+                  >
                     <Trash2 size={18} />
                   </button>
                 </div>
@@ -434,7 +687,11 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
             <div className="order-list">
               {orders.map((order) => (
                 <article
-                  className={order.status === "Cancelada" ? "order-card cancelled" : "order-card"}
+                  className={
+                    order.status === "Cancelada"
+                      ? "order-card cancelled"
+                      : "order-card"
+                  }
                   key={order.id}
                 >
                   <div className="order-header">
@@ -458,27 +715,48 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
                   <div className="order-items">
                     {order.items.map((item) => (
-                      <div className="order-item" key={`${order.id}-${item.id}`}>
-                        <span>{item.name} x{item.quantity}</span>
-                        <strong>${(item.price * item.quantity).toLocaleString("es-CL")}</strong>
+                      <div
+                        className="order-item"
+                        key={`${order.id}-${item.id}`}
+                      >
+                        <span>
+                          {item.name} x{item.quantity}
+                        </span>
+
+                        <strong>
+                          $
+                          {(item.price * item.quantity).toLocaleString(
+                            "es-CL"
+                          )}
+                        </strong>
                       </div>
                     ))}
                   </div>
 
                   <div className="order-total">
                     <span>Total</span>
-                    <strong>${order.total.toLocaleString("es-CL")}</strong>
+                    <strong>
+                      ${order.total.toLocaleString("es-CL")}
+                    </strong>
                   </div>
 
                   <div className="order-actions">
                     {order.status === "Pendiente" && (
                       <>
-                        <button type="button" className="sold-button" onClick={() => markOrderAsSold(order.id)}>
+                        <button
+                          type="button"
+                          className="sold-button"
+                          onClick={() => markOrderAsSold(order.id)}
+                        >
                           <CheckCircle size={18} />
                           Marcar como vendida
                         </button>
 
-                        <button type="button" className="cancel-order-button" onClick={() => cancelOrder(order.id)}>
+                        <button
+                          type="button"
+                          className="cancel-order-button"
+                          onClick={() => cancelOrder(order.id)}
+                        >
                           <XCircle size={18} />
                           Cancelar orden
                         </button>
@@ -486,7 +764,11 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                     )}
 
                     {order.status !== "Pendiente" && (
-                      <button type="button" className="delete-order-button" onClick={() => deleteOrderRecord(order.id)}>
+                      <button
+                        type="button"
+                        className="delete-order-button"
+                        onClick={() => deleteOrderRecord(order.id)}
+                      >
                         <Trash2 size={18} />
                         Eliminar registro
                       </button>

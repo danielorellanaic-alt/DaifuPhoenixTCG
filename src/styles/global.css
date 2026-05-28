@@ -412,6 +412,15 @@ img {
   display: none;
 }
 
+.card-number {
+  color: #caa98a;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  opacity: 0.9;
+}
+
 .product-info h3 {
   margin: 0 0 10px;
   color: #1b120d;

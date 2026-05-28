@@ -27,7 +27,16 @@ export default function ProductCard({ product, addToCart }) {
         <span className="product-game">{product.game}</span>
 
         <div className="product-top-row">
-          <h3>{product.name}</h3>
+          <h3>
+            {product.name}
+
+            {product.cardNumber && (
+              <span className="card-number">
+                {" "}
+                {product.cardNumber}
+              </span>
+            )}
+          </h3>
 
           <span className="stock-text">Stock: {product.stock}</span>
         </div>
