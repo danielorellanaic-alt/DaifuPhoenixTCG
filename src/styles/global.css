@@ -1635,3 +1635,122 @@ body,
     font-size: 18px;
   }
 }
+
+/* ADMIN DARK PREMIUM */
+
+.admin-panel {
+  background:
+    radial-gradient(circle at top, rgba(251, 146, 60, 0.1), transparent 28%),
+    linear-gradient(180deg, #120d0a 0%, #18120f 55%, #120d0a 100%);
+  color: #fff7ed;
+}
+
+.admin-header h1,
+.admin-list h2,
+.admin-orders h2,
+.admin-form-title h2,
+.order-header h3 {
+  color: #fff7ed;
+}
+
+.admin-header p,
+.admin-list-header p,
+.admin-orders > p,
+.order-header p {
+  color: #caa98a;
+}
+
+.admin-card,
+.admin-form,
+.admin-list,
+.admin-orders,
+.admin-stat,
+.order-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 247, 237, 0.065),
+      rgba(255, 247, 237, 0.035)
+    );
+  border: 1px solid rgba(251, 146, 60, 0.14);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(12px);
+}
+
+.admin-badge {
+  background: rgba(251, 146, 60, 0.12);
+  color: #fb923c;
+}
+
+.admin-stat svg,
+.admin-form-title svg {
+  color: #fb923c;
+}
+
+.admin-stat span {
+  color: #caa98a;
+}
+
+.admin-tabs button {
+  background: rgba(255, 247, 237, 0.04);
+  color: #fff7ed;
+  border: 1px solid rgba(251, 146, 60, 0.16);
+}
+
+.admin-tabs button.active {
+  background: linear-gradient(135deg, #c2410c, #f97316, #facc15);
+  color: #140b06;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-filters select,
+.admin-stock input {
+  background: rgba(255, 247, 237, 0.06);
+  color: #fff7ed;
+  border: 1px solid rgba(251, 146, 60, 0.14);
+}
+
+.admin-form input::placeholder {
+  color: #caa98a;
+}
+
+.admin-check {
+  background: rgba(255, 247, 237, 0.04);
+  color: #fff7ed;
+  border: 1px solid rgba(251, 146, 60, 0.14);
+}
+
+.admin-product,
+.order-card {
+  background: rgba(255, 247, 237, 0.05);
+  border: 1px solid rgba(251, 146, 60, 0.14);
+}
+
+.admin-product-info h3,
+.order-item span,
+.order-total span {
+  color: #fff7ed;
+}
+
+.admin-product-info p,
+.admin-stock label {
+  color: #caa98a;
+}
+
+.admin-product-info strong,
+.order-item strong,
+.order-total strong {
+  color: #fb923c;
+}
+
+.sold-button,
+.cancel-order-button,
+.delete-order-button {
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(251, 146, 60, 0.18);
+  background: rgba(251, 146, 60, 0.1);
+  color: #fb923c;
+  font-weight: 800;
+}
