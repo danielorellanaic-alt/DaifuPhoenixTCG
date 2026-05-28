@@ -1,4 +1,5 @@
 import storeConfig from "../data/storeConfig";
+import storeLogo from "scr/assets/logo/store-logo.png"
 
 export default function Hero() {
   return (
