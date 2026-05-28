@@ -1,5 +1,5 @@
 import storeConfig from "../data/storeConfig";
-import storeLogo from "../assets/logo/store-logo.png"
+import storeLogo from "../assets/logo/store-logo.png";
 
 export default function Hero() {
   return (
@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="store-profile">
         <img
           className="store-logo"
-          src={storeConfig.branding.logoImage}
+          src={storeLogo}
           alt={storeConfig.store.name}
         />
 
