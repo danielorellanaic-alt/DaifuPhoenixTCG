@@ -48,6 +48,8 @@ const rarities = [
   "Promo",
 ];
 
+const PAGE_SIZE = 24;
+
 const emptyForm = {
   name: "",
   game: "Pokémon",
@@ -72,6 +74,8 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
   const [cardSearch, setCardSearch] = useState("");
   const [cardResults, setCardResults] = useState([]);
   const [searchingCards, setSearchingCards] = useState(false);
+  const [cardPage, setCardPage] = useState(1);
+  const [hasMoreCards, setHasMoreCards] = useState(false);
 
   const formatProduct = (product) => ({
     id: product.id,
@@ -141,32 +145,36 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
     }));
   };
 
-  const searchPokemonCards = async () => {
+  const searchPokemonCards = async (page = 1) => {
     if (!cardSearch.trim()) return;
 
     setSearchingCards(true);
 
     try {
-      const query = encodeURIComponent(
-        `name:${cardSearch.trim()}*`
-      );
+      const query = encodeURIComponent(`name:${cardSearch.trim()}*`);
 
       const response = await fetch(
-        `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=24`,
+        `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=${PAGE_SIZE}&page=${page}`,
         {
           headers: {
-            "X-Api-Key":
-              import.meta.env.VITE_POKEMON_TCG_API_KEY,
+            "X-Api-Key": import.meta.env.VITE_POKEMON_TCG_API_KEY,
           },
         }
       );
 
       const result = await response.json();
+      const newResults = result.data || [];
 
-      setCardResults(result.data || []);
+      if (page === 1) {
+        setCardResults(newResults);
+      } else {
+        setCardResults((current) => [...current, ...newResults]);
+      }
+
+      setCardPage(page);
+      setHasMoreCards(newResults.length === PAGE_SIZE);
     } catch (error) {
       console.log("ERROR BUSCANDO CARTAS:", error);
-
       alert("No se pudieron buscar cartas.");
     } finally {
       setSearchingCards(false);
@@ -192,6 +200,8 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
     setCardResults([]);
     setCardSearch("");
+    setCardPage(1);
+    setHasMoreCards(false);
   };
 
   const addProduct = async (event) => {
@@ -441,7 +451,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
               <button
                 type="button"
-                onClick={searchPokemonCards}
+                onClick={() => searchPokemonCards(1)}
                 disabled={searchingCards}
               >
                 {searchingCards ? "Buscando..." : "Buscar carta"}
@@ -470,6 +480,19 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                     </div>
                   </button>
                 ))}
+
+                {hasMoreCards && (
+                  <button
+                    type="button"
+                    className="load-more-cards"
+                    onClick={() => searchPokemonCards(cardPage + 1)}
+                    disabled={searchingCards}
+                  >
+                    {searchingCards
+                      ? "Cargando..."
+                      : "Cargar más resultados"}
+                  </button>
+                )}
               </div>
             )}
 

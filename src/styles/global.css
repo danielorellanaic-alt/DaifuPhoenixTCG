@@ -1545,3 +1545,16 @@ body,
 .tcg-result-card small {
   color: #7a4a2b;
 }
+
+.load-more-cards {
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(251, 146, 60, 0.24);
+
+  background: rgba(251, 146, 60, 0.12);
+  color: #fb923c;
+
+  font-weight: 900;
+}
