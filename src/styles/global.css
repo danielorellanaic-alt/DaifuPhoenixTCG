@@ -1513,17 +1513,11 @@ img {
 .card-number {
   color: #ff7a00;
 
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 
-  font-weight: 700;
+  font-weight: 600;
 
-  margin-left: 8px;
+  margin-left: 6px;
 
-  padding: 2px 6px;
-
-  border-radius: 999px;
-
-  background: rgba(255, 122, 0, 0.12);
-
-  border: 1px solid rgba(255, 122, 0, 0.35);
+  opacity: 0.85;
 }
