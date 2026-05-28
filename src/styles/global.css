@@ -1174,9 +1174,12 @@ img {
     height: 108px;
   }
 
-  .store-info {
-    padding-left: 0;
-  }
+ .store-info {
+  padding-left: 58px;
+
+  position: relative;
+  top: 42px;
+}
 
   .store-info h2 {
     font-size: 34px;
