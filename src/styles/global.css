@@ -247,32 +247,37 @@ img {
 
 .store-profile {
   display: flex;
-  align-items: flex-end;
-  gap: 26px;
-
-  margin-top: -58px;
+  align-items: flex-start;
+  gap: 10px;
 
   padding-inline: 40px;
+
   position: relative;
   z-index: 5;
 }
 
 .store-logo {
-  width: 132px;
-  height: 132px;
+  width: 120px;
+  height: 120px;
 
-  border-radius: 50%;
+  border-radius: 999px;
+
   object-fit: cover;
 
   background: #fffaf3;
   border: 5px solid #f6f1eb;
 
-  box-shadow: 0 14px 34px rgba(70, 25, 5, 0.22);
+  box-shadow: 0 14px 34px rgba(70, 25, 5, 0.45);
+
+  position: relative;
+  top: -55px;
 }
 
 .store-info {
-  padding-left: 150px;
-  margin-top: 12px;
+  padding-left: 24px;
+
+  position: relative;
+  top: 42px;
 }
 
 .store-info h2 {
