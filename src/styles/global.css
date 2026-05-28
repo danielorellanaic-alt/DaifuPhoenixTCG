@@ -1851,3 +1851,113 @@ body,
   align-items: center;
   gap: 8px;
 }
+
+/* ADMIN LOGIN PREMIUM */
+
+.admin-auth-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background:
+    radial-gradient(circle at top, rgba(251, 146, 60, 0.12), transparent 28%),
+    linear-gradient(180deg, #120d0a 0%, #18120f 55%, #120d0a 100%);
+}
+
+.admin-auth-card {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 38px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 247, 237, 0.07),
+      rgba(255, 247, 237, 0.035)
+    );
+
+  border: 1px solid rgba(251, 146, 60, 0.14);
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  backdrop-filter: blur(18px);
+}
+
+.admin-auth-card h1 {
+  margin: 0 0 10px;
+
+  color: #fff7ed;
+
+  font-size: 52px;
+  line-height: 0.95;
+}
+
+.admin-auth-card p {
+  color: #caa98a;
+  margin-bottom: 28px;
+}
+
+.admin-auth-card input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 16px 18px;
+  margin-bottom: 16px;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(251, 146, 60, 0.14);
+
+  background: rgba(255, 247, 237, 0.06);
+
+  color: #fff7ed;
+
+  font-size: 16px;
+}
+
+.admin-auth-card input::placeholder {
+  color: #caa98a;
+}
+
+.admin-auth-card button {
+  width: 100%;
+
+  margin-top: 6px;
+  padding: 16px;
+
+  border: none;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #c2410c,
+      #f97316,
+      #facc15
+    );
+
+  color: #140b06;
+
+  font-size: 18px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
+}
+
+.admin-auth-card button:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
