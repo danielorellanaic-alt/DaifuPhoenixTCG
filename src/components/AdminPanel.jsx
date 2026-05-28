@@ -161,17 +161,17 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
         }
       );
 
-    const result = await response.json();
+      const result = await response.json();
 
-    setCardResults(result.data || []);
-  } catch (error) {
-    console.log("ERROR BUSCANDO CARTAS:", error);
+      setCardResults(result.data || []);
+    } catch (error) {
+      console.log("ERROR BUSCANDO CARTAS:", error);
 
-    alert("No se pudieron buscar cartas.");
-  } finally {
-    setSearchingCards(false);
-  }
-};
+      alert("No se pudieron buscar cartas.");
+    } finally {
+      setSearchingCards(false);
+    }
+  };
 
   const selectPokemonCard = (card) => {
     const totalCards = card.set?.printedTotal || card.set?.total || "";
