@@ -151,15 +151,8 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
     setSearchingCards(true);
 
     try {
-      const query = encodeURIComponent(`name:${cardSearch.trim()}*`);
-
       const response = await fetch(
-        `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=${PAGE_SIZE}&page=${page}`,
-        {
-          headers: {
-            "X-Api-Key": import.meta.env.VITE_POKEMON_TCG_API_KEY,
-          },
-        }
+        `/api/pokemon-cards?search=${encodeURIComponent(cardSearch)}&page=${page}`
       );
 
       const result = await response.json();
