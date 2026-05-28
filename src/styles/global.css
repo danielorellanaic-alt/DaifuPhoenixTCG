@@ -1218,3 +1218,290 @@ body {
   box-shadow:
     0 0 30px rgba(255, 90, 0, 0.35);
 }
+
+/* PHOENIX CART DRAWER */
+
+.cart-overlay {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+}
+
+.cart-drawer {
+  background:
+    radial-gradient(circle at top, rgba(255, 111, 0, 0.16), transparent 34%),
+    linear-gradient(180deg, #170701, #080403);
+
+  border-left: 1px solid rgba(255, 132, 0, 0.35);
+  box-shadow: -22px 0 60px rgba(0, 0, 0, 0.55);
+}
+
+.cart-header {
+  border-bottom: 1px solid rgba(255, 132, 0, 0.22);
+}
+
+.cart-header h2 {
+  color: #fff2dc;
+  font-weight: 900;
+}
+
+.cart-header small {
+  color: #ffb15c;
+}
+
+.cart-header button {
+  color: #fff2dc;
+}
+
+.cart-empty {
+  color: #ffcc91;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 14px;
+
+  padding: 14px;
+  margin-bottom: 12px;
+
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 132, 0, 0.16);
+}
+
+.cart-item img {
+  width: 74px;
+  height: 94px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #120701;
+}
+
+.cart-item-info h3 {
+  margin: 0 0 6px;
+  color: #fff2dc;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.cart-item-info p {
+  margin: 0 0 12px;
+  color: #ff9d2f;
+  font-weight: 800;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-controls button {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255, 132, 0, 0.24);
+
+  background: rgba(255, 132, 0, 0.08);
+  color: #ffb15c;
+}
+
+.quantity-controls span {
+  min-width: 26px;
+  text-align: center;
+  color: #fff2dc;
+  font-weight: 900;
+}
+
+.quantity-controls .remove-button {
+  margin-left: auto;
+  color: #ff4b2b;
+  border-color: rgba(255, 75, 43, 0.3);
+  background: rgba(255, 75, 43, 0.08);
+}
+
+.cart-footer {
+  padding: 18px;
+  border-top: 1px solid rgba(255, 132, 0, 0.22);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 16px;
+
+  color: #ffcc91;
+}
+
+.cart-total strong {
+  color: #ff9d2f;
+  font-size: 22px;
+}
+
+.whatsapp-button {
+  width: 100%;
+  padding: 15px;
+
+  border: none;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(135deg, #ff3d00, #ff9500, #ffd166);
+
+  color: #170701;
+  font-weight: 950;
+
+  box-shadow:
+    0 12px 28px rgba(255, 105, 0, 0.24);
+}
+
+.whatsapp-button:hover {
+  filter: brightness(1.08);
+}
+
+/* PHOENIX STORE INFO */
+
+.store-info-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+
+  margin-top: 56px;
+}
+
+.info-card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 26px;
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 120, 0, 0.08),
+      rgba(255, 255, 255, 0.03)
+    );
+
+  border:
+    1px solid rgba(255, 120, 0, 0.18);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.info-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 140, 0, 0.16),
+      transparent 45%
+    );
+
+  pointer-events: none;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(255, 160, 0, 0.42);
+}
+
+.info-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 22px;
+}
+
+.info-title svg {
+  color: #ff8c00;
+}
+
+.info-title h2 {
+  color: #fff2dc;
+
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.info-card p,
+.info-card li {
+  color: #ffd6a5;
+
+  line-height: 1.7;
+}
+
+.info-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.info-item span {
+  width: 32px;
+  height: 32px;
+
+  min-width: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4d00,
+      #ff9d00
+    );
+
+  color: #170701;
+
+  font-size: 14px;
+  font-weight: 900;
+
+  box-shadow:
+    0 6px 18px rgba(255, 98, 0, 0.28);
+}
+
+@media (max-width: 1100px) {
+  .store-info-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .store-info-section {
+    grid-template-columns: 1fr;
+  }
+}
