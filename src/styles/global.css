@@ -1235,3 +1235,153 @@ body,
 .admin-tabs button.active {
   background: linear-gradient(135deg, #9a3412, #ea580c, #f59e0b);
 }
+
+/* DARK PREMIUM CONTRAST FIX */
+
+body,
+.app-layout {
+  color: #fff7ed;
+}
+
+/* TEXTOS GENERALES */
+
+.topbar h1,
+.store-info h2,
+.section-header h2,
+.info-title h2,
+.cart-header h2,
+.cart-item-info h3,
+.product-info h3,
+.sidebar-brand h3 {
+  color: #fff7ed;
+}
+
+.store-meta p,
+.section-header p,
+.info-card p,
+.info-card li,
+.side-menu-links a,
+.cart-header small,
+.cart-empty,
+.cart-total,
+.admin-header p {
+  color: #e7c9aa;
+}
+
+/* ACENTOS NARANJA */
+
+.section-title svg,
+.info-title svg,
+.admin-stat svg,
+.admin-form-title svg,
+.product-footer strong,
+.cart-item-info p,
+.cart-total strong {
+  color: #fb923c;
+}
+
+.product-footer strong {
+  font-weight: 800;
+  text-shadow: 0 0 18px rgba(251, 146, 60, 0.18);
+}
+
+/* SIDEBAR */
+
+.side-menu {
+  background:
+    linear-gradient(
+      180deg,
+      #0c0806,
+      #17100d
+    );
+
+  border-right: 1px solid rgba(251, 146, 60, 0.18);
+  box-shadow: 20px 0 50px rgba(0, 0, 0, 0.35);
+}
+
+.side-menu-links small {
+  color: #a87852;
+}
+
+.side-menu-links a {
+  color: #f5dcc3;
+}
+
+.side-menu-links a:hover {
+  background: rgba(251, 146, 60, 0.12);
+  color: #fb923c;
+}
+
+/* CARRITO */
+
+.cart-drawer {
+  background:
+    linear-gradient(
+      180deg,
+      #0c0806,
+      #18110d
+    );
+
+  border-left: 1px solid rgba(251, 146, 60, 0.18);
+  box-shadow: -24px 0 60px rgba(0, 0, 0, 0.45);
+}
+
+.cart-header {
+  border-bottom: 1px solid rgba(251, 146, 60, 0.16);
+}
+
+.cart-item {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 247, 237, 0.06),
+      rgba(255, 247, 237, 0.035)
+    );
+
+  border: 1px solid rgba(251, 146, 60, 0.14);
+}
+
+.quantity-controls button {
+  background: rgba(251, 146, 60, 0.12);
+  border: 1px solid rgba(251, 146, 60, 0.22);
+  color: #fb923c;
+}
+
+.quantity-controls span {
+  color: #fff7ed;
+}
+
+.quantity-controls .remove-button {
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.28);
+}
+
+.cart-footer {
+  background: #0c0806;
+  border-top: 1px solid rgba(251, 146, 60, 0.16);
+}
+
+.whatsapp-button {
+  background: linear-gradient(135deg, #c2410c, #f97316, #facc15);
+  color: #140b06;
+  font-weight: 950;
+}
+
+/* CARDS INFO */
+
+.info-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 247, 237, 0.065),
+      rgba(255, 247, 237, 0.035)
+    );
+
+  border: 1px solid rgba(251, 146, 60, 0.14);
+}
+
+.info-item span {
+  color: #140b06;
+  font-weight: 950;
+}
