@@ -1158,15 +1158,32 @@ img {
 body,
 .app-layout {
   background:
-    radial-gradient(circle at top left, rgba(234, 88, 12, 0.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(120, 48, 12, 0.12), transparent 32%),
-    linear-gradient(180deg, #efe3d5 0%, #f8f1e8 45%, #f4eadf 100%);
+    radial-gradient(
+      circle at top,
+      rgba(180, 83, 9, 0.12),
+      transparent 24%
+    ),
+    linear-gradient(
+      180deg,
+      #120d0a 0%,
+      #18120f 45%,
+      #1f1814 100%
+    );
+
+  color: #f5ede3;
 }
 
 .header-area {
-  background: rgba(255, 250, 243, 0.78);
-  border-bottom: 1px solid rgba(120, 48, 12, 0.18);
-  box-shadow: 0 10px 30px rgba(70, 25, 5, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+
+  background: rgba(18, 13, 10, 0.82);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(251, 146, 60, 0.12);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
 }
 
 .banner {
@@ -1176,8 +1193,8 @@ body,
 }
 
 .search-input {
-  background: rgba(255, 250, 243, 0.82);
-  border: 1px solid rgba(120, 48, 12, 0.18);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(251,146,60,0.12);
   box-shadow: 0 10px 24px rgba(70, 25, 5, 0.06);
 }
 
