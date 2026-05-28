@@ -149,9 +149,16 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
     try {
       const query = encodeURIComponent(`name:${cardSearch.trim()}*`);
 
+      const apiUrl =
+        `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=8`;
+
       const response = await fetch(
-        `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=8`
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`
       );
+
+const result = await response.json();
+
+setCardResults(result.data || []);
 
       const result = await response.json();
 
