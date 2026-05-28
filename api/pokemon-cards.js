@@ -12,18 +12,27 @@ export default async function handler(request, response) {
       `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=24&page=${page}`,
       {
         headers: {
-          "X-Api-Key": process.env.VITE_POKEMON_TCG_API_KEY,
+          "X-Api-Key": process.env.VITE_POKEMON_TCG_API_KEY || "",
         },
       }
     );
 
-    const data = await apiResponse.json();
+    const text = await apiResponse.text();
+
+    if (!apiResponse.ok) {
+      return response.status(apiResponse.status).json({
+        data: [],
+        error: text,
+      });
+    }
+
+    const data = JSON.parse(text);
 
     return response.status(200).json(data);
   } catch (error) {
     return response.status(500).json({
       data: [],
-      error: "No se pudieron buscar cartas.",
+      error: error.message,
     });
   }
 }
