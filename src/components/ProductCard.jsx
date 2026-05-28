@@ -30,12 +30,9 @@ export default function ProductCard({ product, addToCart }) {
           <h3>
             {product.name}
 
-            {product.cardNumber && (
-              <span className="card-number">
-                {" "}
-                {product.cardNumber}
-              </span>
-            )}
+            <span className="card-number">
+              {product.cardNumber || product.number || product.card_number || ""}
+            </span>
           </h3>
 
           <span className="stock-text">Stock: {product.stock}</span>
