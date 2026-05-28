@@ -8,7 +8,7 @@ html {
 
 body {
   margin: 0;
-  background: #020617;
+  background: #0f0a05;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -43,7 +43,7 @@ img {
       rgba(37, 99, 235, 0.14),
       transparent 34%
     ),
-    #020617;
+    #0f0a05;
 }
 
 .page-content {
@@ -69,7 +69,7 @@ img {
   background:
     linear-gradient(
       180deg,
-      #020617,
+      #0f0a05,
       #07111f
     );
 
@@ -152,7 +152,7 @@ img {
 
 .side-menu-links a:hover {
   background: rgba(37, 99, 235, 0.18);
-  color: #38bdf8;
+  color: #ff6b00;
 }
 
 /* HEADER */
@@ -259,7 +259,7 @@ img {
 
   background: #111827;
 
-  border: 5px solid #020617;
+  border: 5px solid #0f0a05;
 
   box-shadow:
     0 12px 34px rgba(0, 0, 0, 0.45);
@@ -324,7 +324,7 @@ img {
 }
 
 .search-input:focus {
-  border-color: #38bdf8;
+  border-color: #ff6b00;
 }
 
 /* SECTIONS */
@@ -348,7 +348,7 @@ img {
 }
 
 .section-title svg {
-  color: #38bdf8;
+  color: #ff6b00;
 }
 
 .section-header h2 {
@@ -421,7 +421,7 @@ img {
 .product-info h3 {
   margin: 0 0 10px;
 
-  color: #020617;
+  color: #0f0a05;
   font-size: 12px;
   line-height: 1.25;
   font-weight: 900;
@@ -436,7 +436,7 @@ img {
 }
 
 .product-footer strong {
-  color: #020617;
+  color: #0f0a05;
   font-size: 19px;
   font-weight: 500;
 }
@@ -495,8 +495,8 @@ img {
   place-items: center;
 
   border-radius: 999px;
-  background: #38bdf8;
-  color: #020617;
+  background: #ff6b00;
+  color: #0f0a05;
 
   font-size: 11px;
   font-weight: 900;
@@ -522,7 +522,7 @@ img {
   display: flex;
   flex-direction: column;
 
-  background: #020617;
+  background: #0f0a05;
   border-left: 1px solid rgba(148, 163, 184, 0.16);
 
   transition: right 0.25s ease;
@@ -604,7 +604,7 @@ img {
 }
 
 .info-title svg {
-  color: #38bdf8;
+  color: #ff6b00;
 }
 
 .info-title h2 {
@@ -646,7 +646,7 @@ img {
   background: #0f172a;
   border: 1px solid rgba(56, 189, 248, 0.25);
 
-  color: #38bdf8;
+  color: #ff6b00;
   font-size: 14px;
   font-weight: 700;
 }
@@ -678,7 +678,7 @@ img {
 .admin-panel {
   min-height: 100vh;
   padding: 36px;
-  background: #020617;
+  background: #0f0a05;
   color: white;
 }
 
@@ -701,14 +701,14 @@ img {
 
 .admin-card input {
   border: 1px solid #334155;
-  background: #020617;
+  background: #0f0a05;
   color: white;
 }
 
 .admin-card button {
   border: none;
-  background: #38bdf8;
-  color: #020617;
+  background: #ff6b00;
+  color: #0f0a05;
   font-weight: 900;
 }
 
@@ -732,7 +732,7 @@ img {
   padding: 7px 12px;
   border-radius: 999px;
   background: rgba(56, 189, 248, 0.12);
-  color: #38bdf8;
+  color: #ff6b00;
   font-size: 13px;
   font-weight: 800;
 }
@@ -764,7 +764,7 @@ img {
 }
 
 .admin-stat svg {
-  color: #38bdf8;
+  color: #ff6b00;
 }
 
 .admin-stat strong {
@@ -792,8 +792,8 @@ img {
 }
 
 .admin-tabs button.active {
-  background: #38bdf8;
-  color: #020617;
+  background: #ff6b00;
+  color: #0f0a05;
 }
 
 .admin-layout {
@@ -826,7 +826,7 @@ img {
 }
 
 .admin-form-title svg {
-  color: #38bdf8;
+  color: #ff6b00;
 }
 
 .admin-form-title h2 {
@@ -865,8 +865,8 @@ img {
   padding: 14px;
   border: none;
   border-radius: 16px;
-  background: #38bdf8;
-  color: #020617;
+  background: #ff6b00;
+  color: #0f0a05;
   font-weight: 900;
 }
 
@@ -914,8 +914,8 @@ img {
 }
 
 .admin-check input[type="checkbox"]:checked {
-  background: #38bdf8;
-  border-color: #38bdf8;
+  background: #ff6b00;
+  border-color: #ff6b00;
 }
 
 .admin-check input[type="checkbox"] {
@@ -937,8 +937,8 @@ img {
 }
 
 .admin-check input[type="checkbox"]:checked {
-  background: #38bdf8;
-  border-color: #38bdf8;
+  background: #ff6b00;
+  border-color: #ff6b00;
 }
 
 .admin-check input[type="checkbox"]:checked::after {
@@ -951,7 +951,7 @@ img {
   align-items: center;
   justify-content: center;
 
-  color: #020617;
+  color: #0f0a05;
 
   font-size: 17px;
   font-weight: 900;
@@ -1088,9 +1088,9 @@ img {
 }
 
 .admin-tabs button.active {
-  background: #38bdf8;
-  color: #020617;
-  border-color: #38bdf8;
+  background: #ff6b00;
+  color: #0f0a05;
+  border-color: #ff6b00;
 }
 
 .admin-orders {
@@ -1121,7 +1121,7 @@ img {
 
 body {
   background: #ffffff;
-  color: #020617;
+  color: #0f0a05;
 }
 
 .app-layout {
@@ -1130,4 +1130,91 @@ body {
 
 .main-content {
   max-width: 1200px;
+}
+
+/* DAIFU PHOENIX THEME */
+
+body {
+  background:
+    linear-gradient(
+      180deg,
+      #120701 0%,
+      #1b0a02 35%,
+      #0f0a05 100%
+    );
+
+  color: #fff5e6;
+}
+
+.app-layout {
+  background: transparent;
+}
+
+.header-area {
+  background: rgba(15, 10, 5, 0.92);
+
+  border-bottom:
+    1px solid rgba(255, 120, 0, 0.18);
+}
+
+.side-menu {
+  background:
+    linear-gradient(
+      180deg,
+      #140701,
+      #220d03
+    );
+
+  border-right:
+    1px solid rgba(255, 120, 0, 0.18);
+}
+
+.section-header h2,
+.store-info h2 {
+  color: #fff4dc;
+}
+
+.section-header p,
+.store-meta p {
+  color: #ffcf99;
+}
+
+.product-info h3 {
+  color: #fff5e6 !important;
+}
+
+.product-footer strong {
+  color: #ff9d2f !important;
+}
+
+.search-input {
+  background: rgba(35, 15, 5, 0.92);
+
+  border:
+    1px solid rgba(255, 120, 0, 0.18);
+
+  color: white;
+}
+
+.search-input:focus {
+  border-color: #ff7b00;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 120, 0, 0.14);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+
+  filter: brightness(1.03);
+}
+
+.product-image {
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.store-logo {
+  box-shadow:
+    0 0 30px rgba(255, 90, 0, 0.35);
 }
