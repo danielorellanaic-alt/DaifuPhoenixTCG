@@ -1,9 +1,9 @@
 const storeConfig = {
   store: {
-    name: "DEMO TCG STORE",
-    description: "Singles y sellados disponibles",
+    name: "Daifu Phoenix TCG",
+    description: "Singles y accesorios TCG",
     location: "Viña del Mar, Chile",
-    instagram: "@tcgvinadelmar",
+    instagram: "@daifu.phoenix.tcg",
     whatsappNumber: "56950974749",
   },
 
@@ -15,7 +15,7 @@ const storeConfig = {
 
   home: {
     metaLines: [
-      "Singles y sellados disponibles",
+      "Singles y accesorios TCG",
       "Entregas en Viña del Mar",
       "Compra directa por WhatsApp",
     ],
