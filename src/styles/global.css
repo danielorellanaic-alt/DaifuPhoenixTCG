@@ -1502,3 +1502,46 @@ body,
 .search-input::placeholder {
   color: #caa98a;
 }
+
+.tcg-results {
+  max-height: 420px;
+  overflow-y: auto;
+
+  display: grid;
+  gap: 10px;
+}
+
+.tcg-result-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 12px;
+  align-items: center;
+
+  width: 100%;
+  padding: 10px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(120, 48, 12, 0.14);
+
+  background: white;
+  text-align: left;
+}
+
+.tcg-result-card img {
+  width: 56px;
+  border-radius: 6px;
+}
+
+.tcg-result-card div {
+  display: grid;
+  gap: 3px;
+}
+
+.tcg-result-card strong {
+  color: #1b120d;
+}
+
+.tcg-result-card span,
+.tcg-result-card small {
+  color: #7a4a2b;
+}
