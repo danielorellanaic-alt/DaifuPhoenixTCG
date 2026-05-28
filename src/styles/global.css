@@ -246,10 +246,15 @@ img {
 }
 
 .store-profile {
+  display: flex;
+  align-items: flex-end;
+  gap: 26px;
+
+  margin-top: -58px;
+
+  padding-inline: 40px;
   position: relative;
-  margin-top: -64px;
-  padding-left: 32px;
-  padding-right: 24px;
+  z-index: 5;
 }
 
 .store-logo {
@@ -266,8 +271,8 @@ img {
 }
 
 .store-info {
-  margin-top: 18px;
   padding-left: 150px;
+  margin-top: -12px;
 }
 
 .store-info h2 {
