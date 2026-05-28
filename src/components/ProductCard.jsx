@@ -26,7 +26,11 @@ export default function ProductCard({ product, addToCart }) {
       <div className="product-info">
         <span className="product-game">{product.game}</span>
 
-        <h3>{product.name}</h3>
+        <div className="product-top-row">
+          <h3>{product.name}</h3>
+
+          <span className="stock-text">Stock: {product.stock}</span>
+        </div>
 
         {product.set && <p className="product-set">{product.set}</p>}
 
@@ -41,19 +45,13 @@ export default function ProductCard({ product, addToCart }) {
         <div className="product-footer">
           <strong>${product.price.toLocaleString("es-CL")} CLP</strong>
 
-          <div className="cart-button-wrapper">
-            <span className="stock-badge">
-              {product.stock}
-            </span>
-
-            <button
-              className="quick-cart-button"
-              onClick={() => addToCart(product)}
-              aria-label="Agregar al carrito"
-            >
-              <ShoppingCart size={18} />
-            </button>
-          </div>
+          <button
+            className="quick-cart-button"
+            onClick={() => addToCart(product)}
+            aria-label="Agregar al carrito"
+          >
+            <ShoppingCart size={18} />
+          </button>
         </div>
       </div>
     </article>

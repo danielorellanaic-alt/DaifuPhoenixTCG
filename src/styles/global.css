@@ -422,6 +422,30 @@ img {
   letter-spacing: 0.03em;
 }
 
+.product-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-bottom: 10px;
+}
+
+.stock-text {
+  color: #caa98a;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.product-info h3 {
+  margin: 0;
+
+  flex: 1;
+}
+
 .product-footer {
   display: flex;
   align-items: center;
