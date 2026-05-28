@@ -5,7 +5,7 @@ export default function ProductCard({ product, addToCart }) {
 
   const categoryClass = {
     Singles: "single-card",
-    Sellado: "Sellado-card",
+    Sellado: "sealed-card",
     Accesorios: "accessory-card",
   };
 
@@ -38,7 +38,7 @@ export default function ProductCard({ product, addToCart }) {
         {product.rarity && <p className="rarity">{product.rarity}</p>}
 
         <div className="product-footer">
-          <strong>${product.price.toLocaleString("es-CL")}</strong>
+          <strong>${product.price.toLocaleString("es-CL")} CLP</strong>
           <small>Stock: {product.stock}</small>
         </div>
 
