@@ -132,7 +132,7 @@ img {
 .sidebar-brand {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
 
   margin-bottom: 34px;
   padding-bottom: 24px;
@@ -142,15 +142,18 @@ img {
 }
 
 .sidebar-brand img {
-  width: 84px;
-  height: 84px;
+  width: 86px;
+  aspect-ratio: 1 / 1;
 
-  border-radius: 50%;
-  object-fit: cover;
+  border-radius: 999px;
 
-  border: 3px solid rgba(251, 146, 60, 0.22);
+  object-fit: contain;
+
+  padding: 6px;
 
   background: #120d0a;
+
+  border: 3px solid rgba(251, 146, 60, 0.22);
 
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.35),
