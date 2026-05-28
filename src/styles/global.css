@@ -1864,7 +1864,7 @@ body,
   padding: 24px !important;
 
   background:
-    radial-gradient(circle at top, rgba(251, 146, 60, 0.12), transparent 28%) !important,
+    radial-gradient(circle at top, rgba(251, 146, 60, 0.12), transparent 28%),
     linear-gradient(180deg, #120d0a 0%, #18120f 55%, #120d0a 100%) !important;
 }
 
