@@ -147,24 +147,31 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
     setSearchingCards(true);
 
     try {
-      const query = encodeURIComponent(`name:${cardSearch.trim()}*`);
-
-      const apiUrl = `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=24`;
-
-      const response = await fetch(
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(apiUrl)}`
+      const query = encodeURIComponent(
+        `name:${cardSearch.trim()}*`
       );
 
-      const result = await response.json();
+      const response = await fetch(
+        `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=24`,
+        {
+          headers: {
+            "X-Api-Key":
+              import.meta.env.VITE_POKEMON_TCG_API_KEY,
+          },
+        }
+      );
 
-      setCardResults(result.data || []);
-    } catch (error) {
-      console.log("ERROR BUSCANDO CARTAS:", error);
-      alert("No se pudieron buscar cartas.");
-    } finally {
-      setSearchingCards(false);
-    }
-  };
+    const result = await response.json();
+
+    setCardResults(result.data || []);
+  } catch (error) {
+    console.log("ERROR BUSCANDO CARTAS:", error);
+
+    alert("No se pudieron buscar cartas.");
+  } finally {
+    setSearchingCards(false);
+  }
+};
 
   const selectPokemonCard = (card) => {
     const totalCards = card.set?.printedTotal || card.set?.total || "";
