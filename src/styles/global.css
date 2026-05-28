@@ -1855,87 +1855,87 @@ body,
 /* ADMIN LOGIN PREMIUM */
 
 .admin-auth-page {
-  min-height: 100vh;
+  min-height: 100vh !important;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-  padding: 24px;
+  padding: 24px !important;
 
   background:
-    radial-gradient(circle at top, rgba(251, 146, 60, 0.12), transparent 28%),
-    linear-gradient(180deg, #120d0a 0%, #18120f 55%, #120d0a 100%);
+    radial-gradient(circle at top, rgba(251, 146, 60, 0.12), transparent 28%) !important,
+    linear-gradient(180deg, #120d0a 0%, #18120f 55%, #120d0a 100%) !important;
 }
 
 .admin-auth-card {
-  width: 100%;
-  max-width: 420px;
+  width: 100% !important;
+  max-width: 420px !important;
 
-  padding: 38px;
+  padding: 38px !important;
 
-  border-radius: 30px;
+  border-radius: 30px !important;
 
   background:
     linear-gradient(
       180deg,
       rgba(255, 247, 237, 0.07),
       rgba(255, 247, 237, 0.035)
-    );
+    ) !important;
 
-  border: 1px solid rgba(251, 146, 60, 0.14);
+  border: 1px solid rgba(251, 146, 60, 0.14) !important;
 
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
 
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px) !important;
 }
 
 .admin-auth-card h1 {
-  margin: 0 0 10px;
+  margin: 0 0 10px !important;
 
-  color: #fff7ed;
+  color: #fff7ed !important;
 
-  font-size: 52px;
-  line-height: 0.95;
+  font-size: 52px !important;
+  line-height: 0.95 !important;
 }
 
 .admin-auth-card p {
-  color: #caa98a;
-  margin-bottom: 28px;
+  color: #caa98a !important;
+  margin-bottom: 28px !important;
 }
 
 .admin-auth-card input {
-  width: 100%;
-  box-sizing: border-box;
+  width: 100% !important;
+  box-sizing: border-box !important;
 
-  padding: 16px 18px;
-  margin-bottom: 16px;
+  padding: 16px 18px !important;
+  margin-bottom: 16px !important;
 
-  border-radius: 18px;
+  border-radius: 18px !important;
 
-  border: 1px solid rgba(251, 146, 60, 0.14);
+  border: 1px solid rgba(251, 146, 60, 0.14) !important;
 
-  background: rgba(255, 247, 237, 0.06);
+  background: rgba(255, 247, 237, 0.06) !important;
 
-  color: #fff7ed;
+  color: #fff7ed !important;
 
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .admin-auth-card input::placeholder {
-  color: #caa98a;
+  color: #caa98a !important;
 }
 
 .admin-auth-card button {
-  width: 100%;
+  width: 100% !important;
 
-  margin-top: 6px;
-  padding: 16px;
+  margin-top: 6px !important;
+  padding: 16px !important;
 
-  border: none;
-  border-radius: 18px;
+  border: none !important;
+  border-radius: 18px !important;
 
   background:
     linear-gradient(
@@ -1943,22 +1943,21 @@ body,
       #c2410c,
       #f97316,
       #facc15
-    );
+    ) !important;
 
-  color: #140b06;
+  color: #140b06 !important;
 
-  font-size: 18px;
-  font-weight: 900;
+  font-size: 18px !important;
+  font-weight: 900 !important;
 
-  cursor: pointer;
+  cursor: pointer !important;
 
   transition:
     transform 0.2s,
-    opacity 0.2s;
+    opacity 0.2s !important;
 }
 
 .admin-auth-card button:hover {
-  transform: translateY(-2px);
-  opacity: 0.95;
+  transform: translateY(-2px) !important;
+  opacity: 0.95 !important;
 }
-
