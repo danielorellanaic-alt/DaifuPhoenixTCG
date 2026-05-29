@@ -214,22 +214,20 @@ img {
 /* HERO */
 
 .hero-store {
-  position: relative;
-  margin-bottom: 42px;
+  width: 100%;
 }
 
 .banner {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   overflow: hidden;
-  border-radius: 24px;
 }
 
 .banner img {
   width: 100%;
-  height: auto;
+  height: 250px;
   display: block;
+  object-fit: cover;
 }
 
 .store-profile {
