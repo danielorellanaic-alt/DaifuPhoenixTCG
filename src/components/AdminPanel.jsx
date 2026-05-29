@@ -623,10 +623,6 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                 De liga
             </label>
 
-            <button type="submit">
-              Agregar producto
-            </button>
-
             <button type="submit">Agregar producto</button>
           </form>
 
