@@ -127,14 +127,14 @@ img {
 .cart-icon-button {
   border: none;
   background: transparent;
-  color: #ff8a00;
+  color: #1ee7ff;
   font-size: 26px;
 }
 
 .topbar-actions button:hover,
 .menu-button:hover,
 .cart-icon-button:hover {
-  color: #1ee7ff;
+  color: #7eefff;
 }
 
 .fixed-search {
@@ -543,13 +543,13 @@ img {
 }
 
 .product-footer strong {
-  color: #ffd600;
+  color: #1ee7ff;
 
   font-size: 19px;
   font-weight: 800;
 
   text-shadow:
-    0 0 12px rgba(255, 214, 0, 0.18);
+    0 0 12px rgba(30, 231, 255, 0.15);
 }
 
 .quick-cart-button {
@@ -710,7 +710,7 @@ img {
 
 .cart-item-info p {
   margin: 0 0 12px;
-  color: #ffd600;
+  color: #1ee7ff;
   font-weight: 800;
 }
 
@@ -765,9 +765,10 @@ img {
 }
 
 .cart-total strong {
-  color: #ffd600;
-  font-size: 22px;
-  text-shadow: 0 0 12px rgba(255, 214, 0, 0.18);
+  color: #1ee7ff;
+
+  text-shadow:
+    0 0 12px rgba(30, 231, 255, 0.25);
 }
 
 .whatsapp-button {
