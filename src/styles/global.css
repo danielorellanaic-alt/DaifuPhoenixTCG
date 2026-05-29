@@ -1228,6 +1228,11 @@ img {
   color: #ffffff;
 }
 
+.admin-list-header h2 {
+  margin: 0;
+  line-height: 1.1;
+}
+
 .admin-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1412,11 +1417,17 @@ img {
 .admin-list-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+
   gap: 18px;
-  margin-bottom: 18px;
+
+  margin-bottom: 22px;
 }
 
-.admin-list-header p,
+.admin-list-header p {
+  margin: 6px 0 0;
+}
+
 .admin-orders > p {
   margin: 6px 0 0;
   color: #b8d4ff;
