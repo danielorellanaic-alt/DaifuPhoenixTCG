@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 
+import leagueIcon from "../assets/icons/league-icon.png";
+
 export default function ProductCard({ product, addToCart }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -31,6 +33,14 @@ export default function ProductCard({ product, addToCart }) {
           alt={product.name}
           onLoad={() => setImageLoaded(true)}
         />
+
+        {product.league && (
+          <img
+            className="league-icon"
+            src={leagueIcon}
+            alt="Carta de liga"
+          />
+        )}
       </div>
 
       <div className="product-info">

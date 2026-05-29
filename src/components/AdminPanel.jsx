@@ -63,6 +63,7 @@ const emptyForm = {
   stock: "",
   image: "",
   featured: false,
+  league: false,
 };
 
 export default function AdminPanel({ products, setProducts, orders, setOrders }) {
@@ -91,6 +92,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
     stock: product.stock,
     image: product.image,
     featured: product.featured,
+    league: product.league,
   });
 
   const loadOrders = async () => {
@@ -215,6 +217,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
         stock: Number(form.stock),
         image: form.image,
         featured: form.featured,
+        league: from.league,
       })
       .select()
       .single();
@@ -609,6 +612,20 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
               />
               Marcar como destacado
             </label>
+
+            <label className="admin-check">
+              <input
+                name="league"
+                type="checkbox"
+                checked={form.league}
+                onChangue={handleChange}
+                />
+                De liga
+            </label>
+
+            <button type="submit">
+              Agregar producto
+            </button>
 
             <button type="submit">Agregar producto</button>
           </form>

@@ -1917,3 +1917,24 @@ body::before {
   background: rgba(239, 68, 68, 0.16);
   color: #fecaca;
 }
+
+.image-wrapper {
+  position: relative;
+}
+
+.league-icon {
+  position: absolute;
+  left: -18px;
+  top: 50%;
+
+  width: 46px;
+  height: auto;
+
+  transform: translateY(-50%);
+
+  z-index: 5;
+
+  filter:
+    drop-shadow(0 0 8px rgba(30, 231, 255, 0.45))
+    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+}
