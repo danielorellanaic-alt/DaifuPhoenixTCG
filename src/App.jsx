@@ -330,9 +330,9 @@ export default function App() {
           cartCount={cartCount}
         />
 
-        <main className="main-content">
-          <Hero />
+        <Hero />
 
+        <main className="main-content">  
           {loadingProducts && (
             <p className="empty-message">
               Cargando productos...
