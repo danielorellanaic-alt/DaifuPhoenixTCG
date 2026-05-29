@@ -1441,7 +1441,7 @@ img {
 }
 
 .admin-product-info strong {
-  color: #fb923c;
+  color: #1ee7ff;
 }
 
 .admin-stock {
@@ -1792,4 +1792,68 @@ body::before {
 .admin-filters select option {
   background: #0d0a33;
   color: #ffffff;
+}
+
+/* ADMIN COLOR FIXES */
+
+.admin-form input:focus,
+.admin-form select:focus,
+.admin-filters select:focus,
+.admin-stock input:focus {
+  border-color: #1ee7ff;
+  box-shadow:
+    0 0 0 3px rgba(30, 231, 255, 0.14),
+    0 0 18px rgba(30, 231, 255, 0.16);
+}
+
+/* Resultados búsqueda TCG */
+.tcg-result-card {
+  border: 1px solid rgba(30, 231, 255, 0.22);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(30, 231, 255, 0.10),
+      rgba(123, 44, 255, 0.10)
+    );
+}
+
+.tcg-result-card:hover {
+  border-color: #1ee7ff;
+  box-shadow: 0 0 22px rgba(30, 231, 255, 0.18);
+}
+
+.tcg-result-card strong {
+  color: #ffffff;
+}
+
+.tcg-result-card span,
+.tcg-result-card small {
+  color: #8db8ff;
+}
+
+/* Precio inventario */
+.admin-product-info strong {
+  color: #1ee7ff;
+  text-shadow: 0 0 10px rgba(30, 231, 255, 0.22);
+}
+
+/* Checkbox destacado */
+.admin-check input[type="checkbox"] {
+  border-color: rgba(30, 231, 255, 0.35);
+  background: rgba(30, 231, 255, 0.08);
+}
+
+.admin-check input[type="checkbox"]:checked {
+  background: #1ee7ff;
+  border-color: #1ee7ff;
+}
+
+.admin-check input[type="checkbox"]:checked::after {
+  color: #050318;
+}
+
+/* Botón eliminar */
+.admin-delete {
+  background: rgba(239, 68, 68, 0.16);
+  color: #fecaca;
 }
