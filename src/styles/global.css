@@ -1521,3 +1521,17 @@ img {
 
   opacity: 0.85;
 }
+
+.store-meta p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 6px 0;
+}
+
+.store-meta svg {
+  color: #ff7a00;
+
+  flex-shrink: 0;
+}
