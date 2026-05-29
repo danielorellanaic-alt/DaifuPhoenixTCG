@@ -214,13 +214,12 @@ img {
 /* HERO */
 
 .hero-store {
-  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .banner {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  overflow: hidden;
+  margin-top: 0;
 }
 
 .banner img {
