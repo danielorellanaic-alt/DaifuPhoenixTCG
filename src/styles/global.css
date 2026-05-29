@@ -1671,3 +1671,25 @@ body::before {
 
   z-index: -1;
 }
+
+.product-extra-info {
+  display: flex;
+  gap: 8px;
+
+  margin: 6px 0 10px;
+}
+
+.product-extra-info span {
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  background: rgba(30, 231, 255, 0.08);
+
+  border: 1px solid rgba(30, 231, 255, 0.18);
+
+  color: #8db8ff;
+
+  font-size: 11px;
+  font-weight: 700;
+}
