@@ -1,7 +1,7 @@
 const storeConfig = {
   store: {
     name: "Daifu Phoenix TCG",
-    description: "Singles y accesorios TCG",
+    description: "Jugador competitivo TCG",
     location: "Viña del Mar, Chile",
     instagram: "@daifu.phoenix.tcg",
     whatsappNumber: "56950974749",
