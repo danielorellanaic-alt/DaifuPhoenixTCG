@@ -217,7 +217,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
         stock: Number(form.stock),
         image: form.image,
         featured: form.featured,
-        league: from.league,
+        league: form.league,
       })
       .select()
       .single();
