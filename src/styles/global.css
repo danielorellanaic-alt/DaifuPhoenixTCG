@@ -1211,6 +1211,10 @@ img {
   padding: 22px;
 }
 
+.admin-list {
+  padding: 24px;
+}
+
 .admin-form-title {
   display: flex;
   align-items: center;
@@ -1229,7 +1233,7 @@ img {
 }
 
 .admin-list-header h2 {
-  margin: 0;
+  margin: 0 0 6px;
   line-height: 1.1;
 }
 
@@ -1266,8 +1270,10 @@ img {
 .admin-form select:focus,
 .admin-filters select:focus,
 .admin-stock input:focus {
-  border-color: #fb923c;
-  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.12);
+  border-color: #1ee7ff;
+  box-shadow:
+    0 0 0 3px rgba(30, 231, 255, 0.14),
+    0 0 18px rgba(30, 231, 255, 0.16);
 }
 
 .admin-form button {
@@ -1425,7 +1431,8 @@ img {
 }
 
 .admin-list-header p {
-  margin: 6px 0 0;
+  margin: 0;
+  color: #b8d4ff;
 }
 
 .admin-orders > p {
