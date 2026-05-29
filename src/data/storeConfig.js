@@ -1,8 +1,8 @@
 const storeConfig = {
   store: {
     name: "Daifu Phoenix TCG",
-    description: "Jugador competitivo TCG",
-    location: "Viña del Mar, Chile",
+    description: "Pokémon TCG Competitivo & Coleccionismo",
+    location: "Quilpué / Viña del Mar, Chile",
     instagram: "@daifu.phoenix.tcg",
     whatsappNumber: "56950974749",
   },
@@ -10,14 +10,14 @@ const storeConfig = {
   branding: {
     logoImage: "",
     bannerImage: "https://placehold.co/1200x420?text=TCG+Store+Banner",
-    primaryColor: "#38bdf8",
+    primaryColor: "#ff7a00",
   },
 
   home: {
     metaLines: [
-      "Singles y accesorios TCG",
-      "Entregas en Viña del Mar",
-      "Compra directa por WhatsApp",
+      "Pokémon TCG Competitivo & Coleccionismo",
+      "Quilpué / Viña del Mar",
+      "Singles • Accesorios • Productos TCG",
     ],
   },
 
