@@ -57,20 +57,31 @@ img {
   min-height: 100vh;
 
   background:
-    radial-gradient(circle at top,
-      rgba(30, 231, 255, 0.12),
-      transparent 30%),
-    radial-gradient(circle at right,
-      rgba(123, 44, 255, 0.10),
-      transparent 35%),
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(30, 231, 255, 0.08),
+      transparent 25%
+    ),
+
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(123, 44, 255, 0.12),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(30, 231, 255, 0.05),
+      transparent 35%
+    ),
+
     linear-gradient(
       180deg,
-      #05031a 0%,
-      #090724 45%,
+      #040214 0%,
+      #080522 40%,
       #0d0a33 100%
     );
 }
-
 .page-content {
   flex: 1;
   min-width: 0;
@@ -1637,4 +1648,25 @@ img {
   color: #ff7a00;
 
   flex-shrink: 0;
+}
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px
+    );
+
+  background-size: 24px 24px;
+
+  opacity: 0.4;
+
+  z-index: -1;
 }
