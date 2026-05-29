@@ -1525,7 +1525,7 @@ img {
 .store-meta p {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 
   margin: 6px 0;
 }
