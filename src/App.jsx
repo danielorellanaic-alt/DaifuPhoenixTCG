@@ -236,24 +236,37 @@ export default function App() {
     (product) => Number(product.stock) > 0
   );
 
-  const filteredProducts =
-    publicProducts.filter((product) => {
-      const productName =
-        product.name || "";
+  const normalizeText = (text) =>
+    String(text || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
 
-      const productSet =
-        product.set || "";
+  const filteredProducts = publicProducts.filter((product) => {
+    const searchText = normalizeText(search);
 
-      return (
-        productName
-          .toLowerCase()
-          .includes(search.toLowerCase()) ||
-        productSet
-          .toLowerCase()
-          .includes(search.toLowerCase())
-      );
-    });
+    if (!searchText) return true;
 
+    const productName = normalizeText(product.name);
+    const productSet = normalizeText(product.set);
+    const productLanguage = normalizeText(product.language);
+    const productRarity = normalizeText(product.rarity);
+    const productCategory = normalizeText(product.category);
+    const productGame = normalizeText(product.game);
+    const productCardNumber = normalizeText(product.card_number);
+
+    return (
+      productName.includes(searchText) ||
+      productSet.includes(searchText) ||
+      productLanguage.includes(searchText) ||
+      productRarity.includes(searchText) ||
+      productCategory.includes(searchText) ||
+      productGame.includes(searchText) ||
+      productCardNumber.includes(searchText)
+    );
+  });
+  
   const yugiohProducts =
     filteredProducts.filter(
       (product) =>
