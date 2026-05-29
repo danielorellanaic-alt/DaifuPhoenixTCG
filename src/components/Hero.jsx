@@ -6,15 +6,13 @@ import {
 
 import storeConfig from "../data/storeConfig";
 import storeLogo from "../assets/logo/store-logo.png";
+import storeBanner from "../assets/logo/store-banner.png";
 
 export default function Hero() {
   return (
     <section className="hero-store" id="inicio">
       <div className="banner">
-        <img
-          src={storeConfig.branding.bannerImage}
-          alt="Banner tienda"
-        />
+        <img src={storeBanner} alt="banner tienda" />
       </div>
 
       <div className="store-profile">
