@@ -1960,14 +1960,24 @@ body::before {
     0 0 22px rgba(30, 231, 255, 0.08);
 }
 
+.store-marquee {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(30, 231, 255, 0.18);
+  border-bottom: 1px solid rgba(30, 231, 255, 0.18);
+  background: linear-gradient(
+    90deg,
+    rgba(30, 231, 255, 0.12),
+    rgba(123, 44, 255, 0.12)
+  );
+}
+
 .store-marquee-track {
   display: flex;
   width: max-content;
   gap: 42px;
-
   padding: 12px 0;
-
-  animation: marqueeMove 24s linear infinite;
+  animation: marqueeMove 36s linear infinite;
 }
 
 .store-marquee-track span {
@@ -1989,6 +1999,6 @@ body::before {
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(-33.333%);
   }
 }
