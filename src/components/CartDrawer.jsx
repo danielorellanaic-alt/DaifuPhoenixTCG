@@ -46,7 +46,7 @@ ${productLines}
 💰 Total: $${total.toLocaleString("es-CL")}
 
 Quedo atento a la confirmación de stock.
-¡Muchas gracias! 🙌`;
+¡Muchas gracias! 🤝`;
   };
 
   const sendToWhatsapp = async () => {
