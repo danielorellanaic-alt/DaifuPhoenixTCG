@@ -628,6 +628,10 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                 <span>De liga</span>
             </label>
 
+            <p style={{ color: "white" }}>
+              league: {String(form.league)}
+            </p>
+
             <button type="submit">Agregar producto</button>
           </form>
 
