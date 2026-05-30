@@ -616,13 +616,13 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
               Marcar como destacado
             </label>
 
-            <label className="admin-check" html="league-ckeck">
+            <label className="admin-check" html="league-check">
               <input
                 id="league-check"
                 name="league"
                 type="checkbox"
                 checked={form.league}
-                onChangue={handleChange}
+                onChange={handleChange}
                 />
                 
                 <span>De liga</span>
