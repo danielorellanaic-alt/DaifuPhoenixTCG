@@ -616,7 +616,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
               Marcar como destacado
             </label>
 
-            <label className="admin-check" html="league-check">
+            <label className="admin-check" htmlFor="league-check">
               <input
                 id="league-check"
                 name="league"
