@@ -2032,3 +2032,43 @@ body::before {
     font-size: 11px;
   }
 }
+
+@media (max-width: 640px) {
+  .product-card.single-card .image-wrapper {
+    aspect-ratio: 63 / 88;
+    width: 100%;
+    border-radius: 14px;
+    background: rgba(8, 5, 34, 0.75);
+    border: 1px solid rgba(30, 231, 255, 0.18);
+    overflow: hidden;
+  }
+
+  .product-card.single-card .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .product-card.sealed-card .image-wrapper,
+  .product-card.accessory-card .image-wrapper {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border-radius: 14px;
+    background: rgba(8, 5, 34, 0.75);
+    border: 1px solid rgba(30, 231, 255, 0.18);
+    overflow: hidden;
+  }
+
+  .product-card.sealed-card .product-image,
+  .product-card.accessory-card .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+}
