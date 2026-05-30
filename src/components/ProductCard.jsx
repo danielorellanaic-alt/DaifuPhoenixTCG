@@ -12,6 +12,10 @@ export default function ProductCard({ product, addToCart }) {
     Accesorios: "accessory-card",
   };
 
+  const hasCondition =
+    product.condition &&
+    product.condition !== "Sin estado";
+
   return (
     <article
       className={`product-card ${
@@ -63,6 +67,10 @@ export default function ProductCard({ product, addToCart }) {
 
           {product.card_number && (
             <span>#{product.card_number}</span>
+          )}
+
+          {hasCondition && (
+            <span>{product.condition}</span>
           )}
         </div>
 
