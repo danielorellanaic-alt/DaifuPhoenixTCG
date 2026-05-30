@@ -202,8 +202,6 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
   const addProduct = async (event) => {
     event.preventDefault();
 
-    console.log("FORMULARIO:", form);
-
     const { data, error } = await supabase
       .from("products")
       .insert({

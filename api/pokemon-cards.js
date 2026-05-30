@@ -1,12 +1,25 @@
 export default async function handler(request, response) {
   const { search = "", page = "1" } = request.query;
 
-  if (!search.trim()) {
+  const cleanSearch = search.trim();
+
+  if (!cleanSearch) {
     return response.status(400).json({ data: [] });
   }
 
   try {
-    const query = encodeURIComponent(`name:${search.trim()}*`);
+    const normalizedTerms = cleanSearch
+      .toLowerCase()
+      .replace(/[’']/g, "")
+      .replace(/[^a-z0-9\s-]/g, " ")
+      .split(/\s+/)
+      .filter(Boolean);
+
+    const queryText = normalizedTerms
+      .map((term) => `name:${term}*`)
+      .join(" ");
+
+    const query = encodeURIComponent(queryText);
 
     const apiResponse = await fetch(
       `https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=24&page=${page}`,
