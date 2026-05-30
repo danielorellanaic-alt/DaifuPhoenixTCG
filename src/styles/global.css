@@ -1925,13 +1925,13 @@ body::before {
 .league-icon {
   position: absolute;
 
-  left: -8px;
+  left: -12px;
   top: 50%;
 
   transform: translateY(-50%);
 
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
 
   object-fit: contain;
 
