@@ -23,24 +23,30 @@ const storeConfig = {
 
   shoppingInfo: {
     howToBuy: [
-      "Agrega productos al carrito",
-      "Envía tu pedido por WhatsApp",
+      "Agrega los productos al carrito",
+      "Envía tu pedido directamente por WhatsApp",
       "Confirmamos stock y método de pago",
-      "Coordinamos entrega o envío",
+      "Coordinamos envío o entrega",
     ],
 
     paymentMethods: [
-      "Transferencia bancaria",
-      "Mercado Pago",
-      "Efectivo en entregas",
+      "Aceptamos todo método de pago",
     ],
 
     deliveryMethods: [
-      "Entregas en Viña del Mar",
-      "Entregas coordinadas",
-      "Envíos a regiones",
+      "Envíos mediante Starken",
+      "Envíos mediante Blue Express",
+      "Despachos desde la Región de Valparaíso",
+      "Coordinación con tiendas que reciban encomiendas dentro de la Región de Valparaíso",
+    ],
+
+    location: [
+      "Tienda 100% online",
+    ],
+
+    schedule: [
+      "Atención 24 horas, 7 días a la semana",
     ],
   },
-};
-
+}
 export default storeConfig;
