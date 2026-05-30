@@ -4,6 +4,7 @@ const storeConfig = {
     description: "Pokémon TCG Competitivo & Coleccionismo",
     location: "Quilpué / Viña del Mar, Chile",
     instagram: "@daifu.phoenix.tcg",
+    instagramUrl: "https://www.instagram.com/daifu.phoenix.tcg/",
     whatsappNumber: "56950974749",
   },
 

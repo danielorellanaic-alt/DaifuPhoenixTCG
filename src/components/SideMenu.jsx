@@ -8,6 +8,7 @@ import {
   CircleEllipsis,
   Clock,
   MessageCircle,
+  Instagram,
 } from "lucide-react";
 
 import storeConfig from "../data/storeConfig";
@@ -145,6 +146,16 @@ export default function SideMenu({
           >
             <MessageCircle size={18} />
             <span>WhatsApp</span>
+          </a>
+
+          <a
+            href={storeConfig.store.instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeMenu}
+          >
+            <Instagram size={18} />
+            <span>Instagram</span>
           </a>
         </nav>
       </aside>
