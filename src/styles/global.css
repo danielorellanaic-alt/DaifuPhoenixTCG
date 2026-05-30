@@ -1925,7 +1925,7 @@ body::before {
 .league-icon {
   position: absolute;
 
-  left: -12px;
+  left: 8px;
   top: 50%;
 
   transform: translateY(-50%);
