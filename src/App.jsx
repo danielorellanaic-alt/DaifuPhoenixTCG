@@ -56,6 +56,7 @@ export default function App() {
         stock: product.stock,
         image: product.image,
         featured: product.featured,
+        league: product.league,
 
         card_number: product.card_number
       }));
