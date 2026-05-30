@@ -1924,17 +1924,20 @@ body::before {
 
 .league-icon {
   position: absolute;
-  left: -18px;
-  top: 50%;
 
-  width: 46px;
-  height: auto;
+  left: -4px;
+  top: 50%;
 
   transform: translateY(-50%);
 
-  z-index: 5;
+  width: 48px;
+  height: 48px;
 
-  filter:
-    drop-shadow(0 0 8px rgba(30, 231, 255, 0.45))
-    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+  object-fit: contain;
+
+  z-index: 10;
+
+  filter: drop-shadow(
+    0 4px 8px rgba(0, 0, 0, 0.45)
+  );
 }
