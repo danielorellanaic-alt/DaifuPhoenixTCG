@@ -607,7 +607,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
             <label className="admin-check" htmlFor="featured-check">
               <input
-                id="featured-ckeck"
+                id="featured-check"
                 name="featured"
                 type="checkbox"
                 checked={form.featured}
