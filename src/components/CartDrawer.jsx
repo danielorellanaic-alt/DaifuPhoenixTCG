@@ -25,19 +25,28 @@ export default function CartDrawer({
     const productLines = cart
       .map(
         (item) =>
-          `• ${item.name} x${item.quantity} - $${(
-            item.price * item.quantity
-          ).toLocaleString("es-CL")}`
+          `🃏 ${item.name}
+   Cantidad: ${item.quantity}
+   Precio: $${(
+     item.price * item.quantity
+   ).toLocaleString("es-CL")}`
       )
-      .join("\n");
+      .join("\n\n");
 
-    return `Hola! Quiero hacer este pedido:
+    return `🔥 DAIFU PHOENIX TCG 🔥
 
-ORDEN #${orderNumber}
+Hola! Me gustaría reservar los siguientes productos:
+
+📦 Pedido #${orderNumber}
 
 ${productLines}
 
-Total: $${total.toLocaleString("es-CL")}`;
+━━━━━━━━━━━━━━
+
+💰 Total: $${total.toLocaleString("es-CL")}
+
+Quedo atento a la confirmación de stock.
+¡Muchas gracias! 🙌`;
   };
 
   const sendToWhatsapp = async () => {
