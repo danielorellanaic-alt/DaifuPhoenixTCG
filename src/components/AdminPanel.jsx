@@ -605,8 +605,9 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
               required
             />
 
-            <label className="admin-check">
+            <label className="admin-check" htmlFor="featured-check">
               <input
+                id="featured-ckeck"
                 name="featured"
                 type="checkbox"
                 checked={form.featured}
@@ -615,14 +616,16 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
               Marcar como destacado
             </label>
 
-            <label className="admin-check">
+            <label className="admin-check" html="league-ckeck">
               <input
+                id="league-check"
                 name="league"
                 type="checkbox"
                 checked={form.league}
                 onChangue={handleChange}
                 />
-                De liga
+                
+                <span>De liga</span>
             </label>
 
             <button type="submit">Agregar producto</button>

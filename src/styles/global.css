@@ -1360,7 +1360,6 @@ img {
   gap: 14px;
 
   padding: 16px 18px;
-
   border-radius: 18px;
 
   border: 1px solid rgba(30, 231, 255, 0.18);
@@ -1376,7 +1375,11 @@ img {
 
   font-size: 15px;
   font-weight: 600;
+
+  cursor: pointer;
+  user-select: none;
 }
+
 
 .admin-check input[type="checkbox"] {
   appearance: none;
@@ -1384,19 +1387,16 @@ img {
 
   position: relative;
 
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
 
   border-radius: 8px;
 
-  border: 2px solid rgba(30, 231, 255, 0.35);
-
+  border: 2px solid rgba(30, 231, 255, 0.45);
   background: rgba(30, 231, 255, 0.08);
 
   cursor: pointer;
-
-  transition: all 0.2s ease;
 }
 
 .admin-check input[type="checkbox"]:checked {
@@ -1416,7 +1416,7 @@ img {
 
   color: #050318;
 
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 900;
 }
 
