@@ -1766,20 +1766,6 @@ img {
   }
 }
 
-@media (max-width: 480px) {
-  .product-grid,
-  .featured-grid {
-    gap: 12px;
-  }
-
-  .product-image,
-  .product-card.single-card .product-image,
-  .product-card.sealed-card .product-image,
-  .product-card.accessory-card .product-image {
-    height: 300px;
-  }
-}
-
 .card-number {
   color: #1ee7ff;
 
@@ -2004,13 +1990,23 @@ body::before {
 }
 
 @media (max-width: 640px) {
+  .image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .product-image,
   .product-card.single-card .product-image,
   .product-card.sealed-card .product-image,
   .product-card.accessory-card .product-image {
-    height: 300px;
+    width: 100%;
+    height: auto;
+    max-height: none;
+
     object-fit: contain;
-    background: rgba(8, 5, 34, 0.75);
+
+    background: transparent;
   }
 
   .product-extra-info {
