@@ -1941,3 +1941,54 @@ body::before {
     0 4px 8px rgba(0, 0, 0, 0.45)
   );
 }
+
+.store-marquee {
+  width: 100%;
+  overflow: hidden;
+
+  border-top: 1px solid rgba(30, 231, 255, 0.18);
+  border-bottom: 1px solid rgba(30, 231, 255, 0.18);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30, 231, 255, 0.12),
+      rgba(123, 44, 255, 0.12)
+    );
+
+  box-shadow:
+    0 0 22px rgba(30, 231, 255, 0.08);
+}
+
+.store-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 42px;
+
+  padding: 12px 0;
+
+  animation: marqueeMove 24s linear infinite;
+}
+
+.store-marquee-track span {
+  color: #d9e8ff;
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.store-marquee-track span::after {
+  content: "✦";
+  margin-left: 42px;
+  color: #1ee7ff;
+}
+
+@keyframes marqueeMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
