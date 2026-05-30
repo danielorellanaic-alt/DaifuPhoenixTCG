@@ -33,20 +33,20 @@ export default function CartDrawer({
       )
       .join("\n\n");
 
-    return `🔥 DAIFU PHOENIX TCG 🔥
+    return `DAIFU PHOENIX TCG
 
 Hola! Me gustaría reservar los siguientes productos:
 
-📦 Pedido #${orderNumber}
+Pedido #${orderNumber}
 
 ${productLines}
 
 ━━━━━━━━━━━━━━
 
-💰 Total: $${total.toLocaleString("es-CL")}
+Total: $${total.toLocaleString("es-CL")}
 
 Quedo atento a la confirmación de stock.
-¡Muchas gracias! 🤝`;
+¡Muchas gracias!`;
   };
 
   const sendToWhatsapp = async () => {
