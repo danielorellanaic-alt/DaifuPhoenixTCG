@@ -8,7 +8,7 @@ import {
   CircleEllipsis,
   Clock,
   MessageCircle,
-  Instagram,
+  AtSign,
 } from "lucide-react";
 
 import storeConfig from "../data/storeConfig";
@@ -154,7 +154,7 @@ export default function SideMenu({
             rel="noreferrer"
             onClick={closeMenu}
           >
-            <Instagram size={18} />
+            <AtSign size={18} />
             <span>Instagram</span>
           </a>
         </nav>
