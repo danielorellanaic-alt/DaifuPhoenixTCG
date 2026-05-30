@@ -5,7 +5,7 @@ const storeConfig = {
     location: "Quilpué / Viña del Mar, Chile",
     instagram: "@daifu.phoenix.tcg",
     instagramUrl: "https://www.instagram.com/daifu.phoenix.tcg",
-    whatsappNumber: "56950974749",
+    whatsappNumber: "56956912927",
   },
 
   branding: {
