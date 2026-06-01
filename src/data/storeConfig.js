@@ -2,7 +2,7 @@ const storeConfig = {
   store: {
     name: "Daifu Phoenix TCG",
     description: "Pokémon TCG Competitivo & Coleccionismo",
-    location: "Quilpué / Viña del Mar, Chile",
+    location: "Quillota / Viña del Mar, Chile",
     instagram: "@daifu.phoenix.tcg",
     instagramUrl: "https://www.instagram.com/daifu.phoenix.tcg",
     whatsappNumber: "56956912927",
@@ -17,7 +17,7 @@ const storeConfig = {
   home: {
     metaLines: [
       "Pokémon TCG Competitivo & Coleccionismo",
-      "Quilpué / Viña del Mar",
+      "Quillota / Viña del Mar",
       "Singles • Accesorios • Productos TCG",
     ],
   },
