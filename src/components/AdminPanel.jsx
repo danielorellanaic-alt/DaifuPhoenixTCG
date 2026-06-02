@@ -8,6 +8,8 @@ import {
   ShoppingCart,
   CheckCircle,
   XCircle,
+  Search,
+  Pencil,
 } from "lucide-react";
 
 const games = [
@@ -70,6 +72,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
   const [activeTab, setActiveTab] = useState("products");
   const [selectedGame, setSelectedGame] = useState("Todos");
   const [selectedCategory, setSelectedCategory] = useState("Todas");
+  const [inventorySearch, setInventorySearch] = useState("");
   const [form, setForm] = useState(emptyForm);
 
   const [cardSearch, setCardSearch] = useState("");
@@ -77,6 +80,8 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
   const [searchingCards, setSearchingCards] = useState(false);
   const [cardPage, setCardPage] = useState(1);
   const [hasMoreCards, setHasMoreCards] = useState(false);
+  const [editingProductId, setEditingProductId] = useState(null);
+  const [editForm, setEditForm] = useState({});
 
   const formatProduct = (product) => ({
     id: product.id,
@@ -247,14 +252,20 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
     setProducts(
       products.map((product) =>
-        product.id === productId
-          ? { ...product, stock: stockValue }
-          : product
+        product.id === productId ? { ...product, stock: stockValue } : product
       )
     );
   };
 
   const deleteProduct = async (productId) => {
+    const productToDelete = products.find((product) => product.id === productId);
+
+    const confirmDelete = window.confirm(
+      `¿Seguro que deseas eliminar el producto "${productToDelete.name}" del inventario?`
+    );
+
+    if (!confirmDelete) return;
+
     const { error } = await supabase
       .from("products")
       .delete()
@@ -293,10 +304,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
       return {
         ...product,
-        stock: Math.max(
-          Number(product.stock) - Number(orderItem.quantity),
-          0
-        ),
+        stock: Math.max(Number(product.stock) - Number(orderItem.quantity), 0),
       };
     });
 
@@ -352,15 +360,85 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
     await loadOrders();
   };
 
+  const startEditProduct = (product) => {
+    setEditingProductId(product.id);
+    setEditForm({
+      name: product.name || "",
+      price: product.price || "",
+      stock: product.stock || "",
+      image: product.image || "",
+      set: product.set || "",
+      cardNumber: product.cardNumber || "",
+      condition: product.condition || "",
+      language: product.language || "",
+      rarity: product.rarity || "",
+    });
+  };
+
+  const cancelEditProduct = () => {
+    setEditingProductId(null);
+    setEditForm({});
+  };
+
+  const handleEditChange = (event) => {
+    const { name, value } = event.target;
+
+    setEditForm((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  };
+
+  const saveEditedProduct = async (productId) => {
+    const { error } = await supabase
+      .from("products")
+      .update({
+        name: editForm.name,
+        price: Number(editForm.price),
+        stock: Number(editForm.stock),
+        condition: editForm.condition || null,
+        language: editForm.language,
+      })
+      .eq("id", productId);
+
+    if (error) {
+      console.log("ERROR EDITANDO PRODUCTO:", error);
+      alert("No se pudo editar el producto");
+      return;
+    }
+
+    setProducts(
+      products.map((product) =>
+        product.id === productId
+          ? {
+              ...product,
+              ...editForm,
+              price: Number(editForm.price),
+              stock: Number(editForm.stock),
+            }
+          : product
+      )
+    );
+
+    cancelEditProduct();
+  };
+
   const filteredProducts = products.filter((product) => {
+    const searchText = inventorySearch.toLowerCase().trim();
+
+    const matchesSearch =
+      !searchText ||
+      product.name?.toLowerCase().includes(searchText) ||
+      product.set?.toLowerCase().includes(searchText) ||
+      product.cardNumber?.toLowerCase().includes(searchText);
+
     const matchesGame =
       selectedGame === "Todos" || product.game === selectedGame;
 
     const matchesCategory =
-      selectedCategory === "Todas" ||
-      product.category === selectedCategory;
+      selectedCategory === "Todas" || product.category === selectedCategory;
 
-    return matchesGame && matchesCategory;
+    return matchesSearch && matchesGame && matchesCategory;
   });
 
   return (
@@ -388,10 +466,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
           <div>
             <strong>
-              {products.reduce(
-                (sum, item) => sum + Number(item.stock),
-                0
-              )}
+              {products.reduce((sum, item) => sum + Number(item.stock), 0)}
             </strong>
 
             <span>Stock total</span>
@@ -469,8 +544,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                       <strong>{card.name}</strong>
                       <span>{card.set.name}</span>
                       <small>
-                        {card.number}/
-                        {card.set.printedTotal || card.set.total} ·{" "}
+                        {card.number}/{card.set.printedTotal || card.set.total} ·{" "}
                         {card.rarity || "Sin rareza"}
                       </small>
                     </div>
@@ -484,9 +558,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                     onClick={() => searchPokemonCards(cardPage + 1)}
                     disabled={searchingCards}
                   >
-                    {searchingCards
-                      ? "Cargando..."
-                      : "Cargar más resultados"}
+                    {searchingCards ? "Cargando..." : "Cargar más resultados"}
                   </button>
                 )}
               </div>
@@ -508,11 +580,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
             />
 
             <div className="admin-form-grid">
-              <select
-                name="game"
-                value={form.game}
-                onChange={handleChange}
-              >
+              <select name="game" value={form.game} onChange={handleChange}>
                 {games.map((game) => (
                   <option key={game} value={game}>
                     {game}
@@ -562,11 +630,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                 onChange={handleChange}
               />
 
-              <select
-                name="rarity"
-                value={form.rarity}
-                onChange={handleChange}
-              >
+              <select name="rarity" value={form.rarity} onChange={handleChange}>
                 {rarities.map((rarity) => (
                   <option key={rarity || "none"} value={rarity}>
                     {rarity || "Sin rareza"}
@@ -621,9 +685,9 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                 type="checkbox"
                 checked={form.league}
                 onChange={handleChange}
-                />
-                
-                <span>De liga</span>
+              />
+
+              <span>De liga</span>
             </label>
 
             <button type="submit">Agregar producto</button>
@@ -639,29 +703,43 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
               <div className="admin-filters">
                 <select
                   value={selectedGame}
-                  onChange={(event) =>
-                    setSelectedGame(event.target.value)
-                  }
+                  onChange={(event) => setSelectedGame(event.target.value)}
                 >
-                  <option>Todos</option>
+                  <option value="Todos">Todos</option>
 
                   {games.map((game) => (
-                    <option key={game}>{game}</option>
+                    <option key={game} value={game}>
+                      {game}
+                    </option>
                   ))}
                 </select>
 
                 <select
                   value={selectedCategory}
-                  onChange={(event) =>
-                    setSelectedCategory(event.target.value)
-                  }
+                  onChange={(event) => setSelectedCategory(event.target.value)}
                 >
-                  <option>Todas</option>
+                  <option value="Todas">Todas</option>
 
                   {categories.map((category) => (
-                    <option key={category}>{category}</option>
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
                   ))}
                 </select>
+
+                <div className="admin-search-wrapper">
+                  <Search size={18} />
+
+                  <input
+                    className="admin-search"
+                    type="text"
+                    placeholder="Buscar en inventario"
+                    value={inventorySearch}
+                    onChange={(event) =>
+                      setInventorySearch(event.target.value)
+                    }
+                  />
+                </div>
               </div>
             </div>
 
@@ -673,18 +751,14 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                   <div className="admin-product-info">
                     <h3>
                       {product.name}
-                      {product.cardNumber
-                        ? ` ${product.cardNumber}`
-                        : ""}
+                      {product.cardNumber ? ` ${product.cardNumber}` : ""}
                     </h3>
 
                     <p>
                       {product.game} · {product.category}
                     </p>
 
-                    <strong>
-                      ${product.price.toLocaleString("es-CL")}
-                    </strong>
+                    <strong>${product.price.toLocaleString("es-CL")}</strong>
                   </div>
 
                   <div className="admin-stock">
@@ -698,14 +772,24 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                       }
                     />
                   </div>
+                  
+                  <div className="admin-actions">
+                    <button
+                      type="button"
+                      className="admin-edit"
+                      onClick={() => startEditProduct(product)}
+                    >
+                      <Pencil size={18} />
+                    </button>
 
-                  <button
-                    type="button"
-                    className="admin-delete"
-                    onClick={() => deleteProduct(product.id)}
-                  >
-                    <Trash2 size={18} />
-                  </button>
+                    <button
+                      type="button"
+                      className="admin-delete"
+                      onClick={() => deleteProduct(product.id)}
+                    >
+                      <Trash2 size={18} />
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -765,10 +849,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                         </span>
 
                         <strong>
-                          $
-                          {(item.price * item.quantity).toLocaleString(
-                            "es-CL"
-                          )}
+                          ${(item.price * item.quantity).toLocaleString("es-CL")}
                         </strong>
                       </div>
                     ))}
@@ -776,9 +857,7 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
 
                   <div className="order-total">
                     <span>Total</span>
-                    <strong>
-                      ${order.total.toLocaleString("es-CL")}
-                    </strong>
+                    <strong>${order.total.toLocaleString("es-CL")}</strong>
                   </div>
 
                   <div className="order-actions">
@@ -820,6 +899,74 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
             </div>
           )}
         </section>
+      )}
+
+      {editingProductId && (
+        <div className="edit-modal-overlay">
+          <div className="edit-modal">
+            <h2>Editar producto</h2>
+
+            <input
+              name="name"
+              placeholder="Nombre"
+              value={editForm.name}
+              onChange={handleEditChange}
+            />
+
+            <input
+              name="price"
+              type="number"
+              placeholder="Precio"
+              value={editForm.price}
+              onChange={handleEditChange}
+            />
+
+            <input
+              name="stock"
+              type="number"
+              placeholder="Stock"
+              value={editForm.stock}
+              onChange={handleEditChange}
+            />
+
+            <input
+              name="language"
+              placeholder="Idioma"
+              value={editForm.language}
+              onChange={handleEditChange}
+            />
+
+            <select
+              name="condition"
+              value={editForm.condition}
+              onChange={handleEditChange}
+            >
+              {conditions.map((condition) => (
+                <option key={condition || "none"} value={condition}>
+                  {condition || "Sin estado"}
+                </option>
+              ))}
+            </select>
+
+            <div className="edit-modal-actions">
+              <button
+                type="button"
+                className="cancel-edit-button"
+                onClick={cancelEditProduct}
+              >
+                Cancelar
+              </button>
+
+              <button
+                type="button"
+                className="save-edit-button"
+                onClick={() => saveEditedProduct(editingProductId)}
+              >
+                Guardar cambios
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </main>
   );
