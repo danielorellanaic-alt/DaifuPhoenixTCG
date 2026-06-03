@@ -2279,8 +2279,14 @@ body::before {
   }
 
   .admin-filters {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
     width: 100%;
+  }
+
+  .admin-search-wrapper {
+    grid-column: 1 / -1;
   }
 
   .admin-filters select,
