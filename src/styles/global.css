@@ -2252,3 +2252,40 @@ body::before {
   background: #0d0a33;
   color: #ffffff;
 }
+
+@media (max-width: 768px) {
+  .admin-panel {
+    padding: 16px;
+  }
+
+  .admin-layout {
+    display: block;
+  }
+
+  .admin-form {
+    position: static;
+    top: auto;
+    margin-bottom: 18px;
+    width: 100%;
+  }
+
+  .admin-list {
+    width: 100%;
+  }
+
+  .admin-list-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-filters {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .admin-filters select,
+  .admin-search-wrapper {
+    width: 100%;
+    max-width: none;
+  }
+}
