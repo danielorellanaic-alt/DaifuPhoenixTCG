@@ -776,16 +776,18 @@ export default function AdminPanel({ products, setProducts, orders, setOrders })
                   <div className="admin-actions">
                     <button
                       type="button"
-                      className="admin-edit"
+                      className="admin-action-btn admin-edit"
                       onClick={() => startEditProduct(product)}
+                      title="Editar producto"
                     >
                       <Pencil size={18} />
                     </button>
 
                     <button
                       type="button"
-                      className="admin-delete"
+                      className="admin-action-btn admin-delete"
                       onClick={() => deleteProduct(product.id)}
+                      title="Eliminar producto"
                     >
                       <Trash2 size={18} />
                     </button>
