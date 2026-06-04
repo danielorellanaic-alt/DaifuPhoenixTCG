@@ -1009,30 +1009,33 @@ img {
     0 0 20px rgba(30, 231, 255, 0.16);
 }
 
-.admin-card button {
+.tcg-result-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: center;
+  gap: 12px;
+
   width: 100%;
+  padding: 12px;
 
-  margin-top: 6px;
-  padding: 16px;
+  border-radius: 16px;
 
-  border: none;
-  border-radius: 18px;
+  border: 1px solid rgba(30, 231, 255, 0.18);
 
-  background: linear-gradient(135deg, #1ee7ff, #7b2cff);
+  background: #082b46;
 
-  color: #050318;
+  text-align: left;
 
-  font-size: 18px;
-  font-weight: 900;
-
-  box-shadow:
-    0 0 22px rgba(30, 231, 255, 0.22);
-
-  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.admin-card button:hover {
-  filter: brightness(1.12);
+.tcg-result-card:hover {
+  border-color: rgba(30, 231, 255, 0.45);
+
+  box-shadow:
+    0 0 18px rgba(30, 231, 255, 0.12);
+
+  transform: translateY(-1px);
 }
 
 /* ADMIN PANEL */
@@ -2396,4 +2399,63 @@ body::before {
 .admin-form::-webkit-scrollbar-thumb:hover {
   background: rgba(30, 231, 255, 0.9);
   background-clip: padding-box;
+}
+
+/* =========================================
+   FIX RESULTADOS BÚSQUEDA TCG
+   Evita que .admin-form button pise las cards
+========================================= */
+
+.admin-form .tcg-result-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 16px;
+  border: 1px solid rgba(30, 231, 255, 0.18);
+
+  background: #082b46 !important;
+  color: #ffffff;
+
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.admin-form .tcg-result-card:hover {
+  border-color: rgba(30, 231, 255, 0.45);
+  background: #0a3556 !important;
+  box-shadow: 0 0 18px rgba(30, 231, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.admin-form .tcg-result-card img {
+  width: 56px;
+  border-radius: 6px;
+}
+
+.admin-form .tcg-result-card div {
+  display: grid;
+  gap: 3px;
+}
+
+.admin-form .tcg-result-card strong {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.admin-form .tcg-result-card span {
+  color: #b8d4ff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-form .tcg-result-card small {
+  color: #1ee7ff;
+  font-size: 12px;
+  font-weight: 800;
 }
