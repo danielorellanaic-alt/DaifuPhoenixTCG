@@ -1327,7 +1327,7 @@ img {
 }
 
 .tcg-result-card:hover {
-  border-color: rgba(30, 231, 255, 0.45);
+  border-color: #082b46;
 
   box-shadow:
     0 0 18px rgba(30, 231, 255, 0.12);
