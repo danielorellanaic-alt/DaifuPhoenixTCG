@@ -1311,22 +1311,28 @@ img {
   grid-template-columns: 56px 1fr;
   align-items: center;
   gap: 12px;
+
   width: 100%;
-  padding: 10px;
-  border-radius: 14px;
-  border: 1px solid rgba(30, 231, 255, 0.22);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(30, 231, 255, 0.10),
-      rgba(123, 44, 255, 0.10)
-    );
+  padding: 12px;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(30, 231, 255, 0.18);
+
+  background: #082b46;
+
   text-align: left;
+
+  transition: all 0.2s ease;
 }
 
 .tcg-result-card:hover {
-  border-color: #1ee7ff;
-  box-shadow: 0 0 22px rgba(30, 231, 255, 0.18);
+  border-color: rgba(30, 231, 255, 0.45);
+
+  box-shadow:
+    0 0 18px rgba(30, 231, 255, 0.12);
+
+  transform: translateY(-1px);
 }
 
 .tcg-result-card img {
@@ -1341,11 +1347,19 @@ img {
 
 .tcg-result-card strong {
   color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
 }
 
-.tcg-result-card span,
+.tcg-result-card span {
+  color: #b8d4ff;
+  font-size: 13px;
+}
+
 .tcg-result-card small {
-  color: #8db8ff;
+  color: #1ee7ff;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .load-more-cards {
