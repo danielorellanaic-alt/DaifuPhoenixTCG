@@ -607,7 +607,7 @@ img {
   display: grid;
   place-items: center;
   border-radius: 999px;
-  background: #1ee7ff;
+  background: #082b46;
   color: #050318;
   font-size: 11px;
   font-weight: 900;
@@ -1507,7 +1507,7 @@ img {
 }
 
 .admin-product-info strong {
-  color: #1ee7ff;
+  color: #082b46;
   text-shadow: 0 0 10px rgba(30, 231, 255, 0.22);
 }
 
